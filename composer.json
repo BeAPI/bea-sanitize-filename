@@ -1,0 +1,16 @@
+{
+  "name": "bea/sanitize-filename",
+  "description": "Remove all french punctuation and accents from the filename of upload for client limitation (Safari Mac/IOS)",
+  "minimum-stability": "stable",
+  "license": "GPL-2.0",
+  "authors": [
+    {
+      "name": "Amaury BALMER",
+      "email": "amaury@beapi.fr"
+    }
+  ],
+  "type" : "wordpress-muplugin",
+  "require" : {
+    "composer/installers" : "~1.0"
+  }
+}
