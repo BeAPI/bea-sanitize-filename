@@ -3,10 +3,11 @@
 This mu-plugin allows you to sanitize files on upload, which is pretty handy.
 You could then ask "Why it's not already into core?". This is [make WordPress core](https://core.trac.wordpress.org/ticket/22363) !
 
-## Compatibility for MAC owners
+## Features
 
-On MAC, you can also create an accented character with the combination of *`* and the wanted letter. This has the effect to create a character with a special filename system encoding format which is not sanitized.
-An [issue](https://github.com/BeAPI/bea-sanitize-filename/issues/1) is open about this.
+* All accented letters will be converted to same letters without accent
+* Special characters will be deleted
+* Underscores will be replaced by hyphens
 
 ## Installation
 
@@ -22,10 +23,17 @@ We assume this is a must have plugin, so it's recommended to use at it as mu-plu
 
 1. Copy the plugin folder into your must use plugins folder.
 
+## Compatibility for MAC owners
+
+On MAC, you can also create an accented character with the combination of *`* and the wanted letter. This has the effect to create a character with a special filename system encoding format which is not sanitized.
+An [issue](https://github.com/BeAPI/bea-sanitize-filename/issues/1) is open about this.
+
 ## Changelog
 
 ### 1.0.1 - 05 Aug 2017
 * Add readme
+* Replace underscore by hyphen
+* Only lowercase
 
 ### 1.0.0 - 27 Nov 2015
 * Initial
