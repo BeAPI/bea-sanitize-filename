@@ -1,13 +1,14 @@
 <?php
 /*
   Plugin Name:  BEA Sanitize filename
-  Description:  Remove all french punctuation and accents from the filename of upload for client limitation (Safari Mac/IOS)
-  Plugin URI:   http://www.beapi.fr
-  Version:      1.0
-  Author:       BeAPI
-  Author URI:   http://www.beapi.fr
+  Description:  Remove all punctuation and accents from the filename of uploaded files.
+  Plugin URI:   https://beapi.fr
+  Version:      1.0.1
+  Author:       Be API
+  Author URI:   https://beapi.fr
 
-  /*
+  --------
+
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public License
   as published by the Free Software Foundation; either version 2
@@ -28,5 +29,6 @@ add_filter( 'sanitize_file_name_chars', 'sanitize_file_name_chars', 10, 1 );
 
 function sanitize_file_name_chars( $special_chars = array() ) {
 	$special_chars = array_merge( array( '’', '‘', '“', '”', '«', '»', '‹', '›', '—', 'æ', 'œ', '€' ), $special_chars );
+
 	return $special_chars;
 }
