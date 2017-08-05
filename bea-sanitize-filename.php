@@ -24,11 +24,39 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-add_filter( 'sanitize_file_name', 'remove_accents', 10, 1 );
-add_filter( 'sanitize_file_name_chars', 'sanitize_file_name_chars', 10, 1 );
-
-function sanitize_file_name_chars( $special_chars = array() ) {
+function bea_sanitize_file_name_chars( $special_chars = array() ) {
 	$special_chars = array_merge( array( '’', '‘', '“', '”', '«', '»', '‹', '›', '—', 'æ', 'œ', '€' ), $special_chars );
 
 	return $special_chars;
 }
+add_filter( 'sanitize_file_name_chars', 'bea_sanitize_file_name_chars', 10, 1 );
+
+/**
+ * Filters the filename by adding more rules :
+ * - only lowercase
+ * - replace _ by -
+ *
+ * @since 1.0.1
+ *
+ * @param string $file_name
+ *
+ * @return string
+ */
+function bea_sanitize_file_name( $file_name ) {
+	// get extension
+	preg_match( '/\.[^\.]+$/i', $file_name, $ext );
+	$ext = $ext[0];
+
+	// work only on the filename without extension
+	$file_name = str_replace( $ext, '', $file_name );
+
+	// only lowercase
+	// replace _ by -
+	$file_name = sanitize_title( $file_name );
+
+	// remove accents
+	$file_name = str_replace( '_', '-', $file_name );
+
+	return $file_name . $ext;
+}
+add_filter( 'sanitize_file_name', 'bea_sanitize_file_name', 10, 1 );
