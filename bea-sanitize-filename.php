@@ -25,7 +25,7 @@
  */
 
 function bea_sanitize_file_name_chars( $special_chars = array() ) {
-	$special_chars = array_merge( array( '’', '‘', '“', '”', '«', '»', '‹', '›', '—', 'æ', 'œ', '€' ), $special_chars );
+	$special_chars = array_merge( array( '’', '‘', '“', '”', '«', '»', '‹', '›', '—', '€' ), $special_chars );
 
 	return $special_chars;
 }
