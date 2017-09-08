@@ -30,6 +30,9 @@ An [issue](https://github.com/BeAPI/bea-sanitize-filename/issues/1) is open abou
 
 ## Changelog
 
+### 1.0.1 - 08 Sept 2017
+* Update `sanitize_file_name_chars` list
+
 ### 1.0.1 - 05 Aug 2017
 * Add readme
 * Replace underscore by hyphen
