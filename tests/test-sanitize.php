@@ -14,6 +14,11 @@ class SanitizeFilenameTest extends WP_UnitTestCase {
 		$this->assertSame( 'should-not-change.lol', sanitize_file_name( 'should-not-change.lol' ) );
 	}
 
+	function test_has_filter() {
+		$this->assertTrue( (bool) has_filter( 'sanitize_file_name_chars', 'bea_sanitize_file_name_chars' ) );
+		$this->assertTrue( (bool) has_filter( 'sanitize_file_name', 'bea_sanitize_file_name' ) );
+	}
+
 	function test_replaces_accents() {
 		$in  = 'àáâãäåæœçćčèéêëìíîïñòóôõöøùúûüýÿ';
 		$out = 'aaaaaaaeoeccceeeeiiiinoooooouuuuyy';
