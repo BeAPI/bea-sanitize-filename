@@ -19,7 +19,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 This program incorporates work covered by the following copyright and
 permission notices:
 
-  BEA - Sanitize Filename / Find where medias are used across your site.
+  BEA - Sanitize Filename / Sanitize files on upload.
 
   Copyright 2017-2018 Be API and contributors
 
@@ -706,6 +706,6 @@ Public License instead of this License.  But first, please read
 WRITTEN OFFER
 
 The source code for any program binaries or compressed scripts that are
-included with BEA - Find Media can be freely obtained at the following URL:
+included with BEA - Sanitize Filename can be freely obtained at the following URL:
 
     https://github.com/BeAPI/bea-sanitize-filename/
