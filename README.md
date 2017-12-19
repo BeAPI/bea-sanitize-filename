@@ -1,7 +1,32 @@
-# BEA Sanitize Filename
+<a href="https://beapi.fr">![Be API Github Banner](assets/images/banner-github.png)</a>
+
+# BEA - Sanitize Filename
 
 This mu-plugin allows you to sanitize files on upload, which is pretty handy.
 You could then ask "Why it's not already into core?". This is [make WordPress core](https://core.trac.wordpress.org/ticket/22363) !
+
+# How ?
+
+## Requirements
+
+- No requirements
+
+## Installation
+
+As we assume this is a must have plugin, it's recommended to use at it as mu-plugin. As it is a folder, you must use a MU Loader : https://github.com/BeAPI/wp-mu-loader.
+
+### WordPress
+
+- Download and copy the plugin folder into your must-use plugins folder.
+- Nothing more, this plugin is ready to use !
+
+### [Composer](http://composer.rarst.net/)
+
+- Add repository source : `{ "type": "git", "url": "https://github.com/BeAPI/bea-find-media" }`.
+- Include `"bea/sanitize-filename": "dev-master"` in your composer file for last master's commits or a tag released.
+- Nothing more, this plugin is ready to use !
+
+# What ?
 
 ## Features
 
@@ -9,37 +34,25 @@ You could then ask "Why it's not already into core?". This is [make WordPress co
 * Special characters will be deleted
 * Underscores will be replaced by hyphens
 
-## Installation
-
-We assume this is a must have plugin, so it's recommended to use at it as mu-plugin. As it is a folder you must use a MU Loader : https://github.com/BeAPI/wp-mu-loader.
-
-### via Composer
-
-1. Add a line to your repositories array: `{ "type": "git", "url": "https://github.com/BeAPI/bea-sanitize-filename" }`
-2. Add a line to your require block: `"bea/sanitize-filename": "dev-master"`
-3. Run: `composer update`
-
-### Manual
-
-1. Copy the plugin folder into your must use plugins folder.
-
 ## Compatibility for MAC owners
 
-On MAC, you can also create an accented character with the combination of *`* and the wanted letter. This has the effect to create a character with a special filename system encoding format which is not sanitized.
+On MAC, you can also create an accented character with the combination of *<code>`</code* and the wanted letter. This has the effect to create a character with a special filename system encoding format which is not sanitized.
 An [issue](https://github.com/BeAPI/bea-sanitize-filename/issues/1) is open about this.
+  
+## Contributing
 
-## Changelog
+Please refer to the [contributing guidelines](.github/CONTRIBUTING.md) to increase the chance of your pull request to be merged and/or receive the best support for your issue.
 
-### 1.0.3 - 19 Dec 2017
-* Fix some PHP notices
+### Issues & features request / proposal
 
-### 1.0.2 - 08 Sept 2017
-* Update `sanitize_file_name_chars` list
+If you identify any errors or have an idea for improving the plugin, feel free to open an [issue](../../issues/new). Please provide as much info as needed in order to help us resolving / approve your request.
 
-### 1.0.1 - 05 Aug 2017
-* Add readme
-* Replace underscore by hyphen
-* Only lowercase
+# Who ?
 
-### 1.0.0 - 27 Nov 2015
-* Initial
+Created by [Be API](https://beapi.fr), the French WordPress leader agency since 2009. Based in Paris, we are more than 30 people and always [hiring](https://beapi.workable.com) some fun and talented guys. So we will be pleased to work with you.
+
+This plugin is only maintained by the [Be API team](https://beapi.fr), which means we do not guarantee some free support. Consider reporting an [issue](#issues--features-request--proposal) and be patient. 
+
+## License
+
+BEA - Find Media is licensed under the [GPLv3 or later](LICENSE.md).
