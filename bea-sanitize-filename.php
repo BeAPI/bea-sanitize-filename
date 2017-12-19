@@ -1,28 +1,30 @@
 <?php
 /*
-  Plugin Name:  BEA Sanitize filename
-  Description:  Remove all punctuation and accents from the filename of uploaded files.
-  Plugin URI:   https://beapi.fr
-  Version:      1.0.3
-  Author:       Be API
-  Author URI:   https://beapi.fr
+ Plugin Name: BEA - Sanitize filename
+ Version: 1.0.4
+ Plugin URI: https://github.com/BeAPI/bea-sanitize-filename
+ Description: Remove all punctuation and accents from the filename of uploaded files.
+ Author: Be API Technical team
+ Author URI: https://beapi.fr
+  
+ --------
+  
+ Copyright 2017 Be API Technical team (human@beapi.fr)
 
-  --------
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
 
-  This program is free software; you can redistribute it and/or
-  modify it under the terms of the GNU General Public License
-  as published by the Free Software Foundation; either version 2
-  of the License, or (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
 
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License
-  along with this program; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
 
 function bea_sanitize_file_name_chars( $special_chars = array() ) {
 	$special_chars = array_merge( array( '’', '‘', '“', '”', '«', '»', '‹', '›', '—', '€' ), $special_chars );
@@ -52,7 +54,7 @@ function bea_sanitize_file_name( $file_name = '' ) {
 	preg_match( '/\.[^\.]+$/i', $file_name, $ext );
 
 	// No extension, go out ?
-	if ( !isset($ext[0]) ) {
+	if ( ! isset( $ext[0] ) ) {
 		return $file_name;
 	}
 
