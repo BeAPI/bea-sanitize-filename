@@ -1,0 +1,15 @@
+# Changelog
+
+## 1.0.3 - 19 Dec 2017
+* Fix some PHP notices
+
+## 1.0.2 - 08 Sept 2017
+* Update `sanitize_file_name_chars` list
+
+## 1.0.1 - 05 Aug 2017
+* Add readme
+* Replace underscore by hyphen
+* Only lowercase
+
+## 1.0.0 - 27 Nov 2015
+* Initial
