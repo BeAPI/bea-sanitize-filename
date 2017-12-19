@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.4 - 19 Dec 2017
+* Branding refactor
+
 ## 1.0.3 - 19 Dec 2017
 * Fix some PHP notices
 
