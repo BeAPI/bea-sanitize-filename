@@ -36,7 +36,7 @@ As we assume this is a must have plugin, it's recommended to use at it as mu-plu
 
 ## Compatibility for MAC owners
 
-On MAC, you can also create an accented character with the combination of *<code>`</code* and the wanted letter. This has the effect to create a character with a special filename system encoding format which is not sanitized.
+On MAC, you can also create an accented character with the combination of *<code>`</code>* and the wanted letter. This has the effect to create a character with a special filename system encoding format which is not sanitized.
 An [issue](https://github.com/BeAPI/bea-sanitize-filename/issues/1) is open about this.
   
 ## Contributing
