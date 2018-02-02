@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.6 - 02 Feb 2018
+* Go to WP
+
 ## 1.0.4 - 19 Dec 2017
 * Branding refactor
 
