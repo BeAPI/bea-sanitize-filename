@@ -2,7 +2,7 @@
 
 # BEA - Sanitize Filename
 
-This mu-plugin allows you to sanitize files on upload, which is pretty handy.
+This plugin will remove all punctuation and accents from the filename of uploaded files, which is pretty handy.
 You could then ask "Why it's not already into core?". This is [make WordPress core](https://core.trac.wordpress.org/ticket/22363) !
 
 # How ?
