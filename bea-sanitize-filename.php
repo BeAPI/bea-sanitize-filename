@@ -6,6 +6,7 @@
  Description: Remove all punctuation and accents from the filename of uploaded files.
  Author: Be API Technical team
  Author URI: https://beapi.fr
+ Contributors: Maxime Culea
   
  --------
   
