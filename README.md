@@ -1,4 +1,4 @@
-<a href="https://beapi.fr">![Be API Github Banner](assets/images/banner-github.png)</a>
+<a href="https://beapi.fr">![Be API Github Banner](.wordpress.org/banner-github.png)</a>
 
 # BEA - Sanitize Filename
 
