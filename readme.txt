@@ -25,11 +25,11 @@ This plugin allows you to sanitize files on upload, which is pretty handy. It me
 
 On MAC, you can also create an accented character with the combination of ` and the wanted letter. This has the effect to create a character with a special filename system encoding format which is not sanitized. An [issue](https://github.com/BeAPI/bea-sanitize-filename/issues/1) is already open about this.
 
-= Who ?
+## Who ?
 
 Created by [Be API](https://beapi.fr), the French WordPress leader agency since 2009. Based in Paris, we are more than 30 people and always [hiring](https://beapi.workable.com) some fun and talented guys. So we will be pleased to work with you.
 
-This plugin is only maintained by [Maxime CULEA](https://maximeculea.fr) and the [Be API team](https://beapi.fr), which means we do not guarantee some free support. Consider reporting an [issue](https://github.com/BeAPI/bea-find-media/issues) and be patient.
+This plugin is only maintained by [Maxime CULEA](https://maximeculea.fr) and the [Be API team](https://beapi.fr), which means we do not guarantee some free support. Consider reporting an [issue](https://github.com/BeAPI/bea-sanitize-filename/issues) and be patient.
 
 == Installation ==
 
@@ -57,7 +57,7 @@ You just need to activate on each site.
 
 == Changelog ==
 
-= 1.0.7 - 02 Feb 2018 =
+= 2.0.0 - 02 Feb 2018 =
 - Go to WP
 
 = 1.0.4 - 19 Dec 2017 =

@@ -22,7 +22,7 @@ As we assume this is a must have plugin, it's recommended to use at it as mu-plu
 
 ### [Composer](http://composer.rarst.net/)
 
-- Add repository source : `{ "type": "git", "url": "https://github.com/BeAPI/bea-find-media" }`.
+- Add repository source : `{ "type": "git", "url": "https://github.com/BeAPI/bea-sanitize-filename" }`.
 - Include `"bea/sanitize-filename": "dev-master"` in your composer file for last master's commits or a tag released.
 - Nothing more, this plugin is ready to use !
 

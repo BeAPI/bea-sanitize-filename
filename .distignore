@@ -1,3 +1,4 @@
+.distignore
 .github
 .git
 CHANGELOG.md
