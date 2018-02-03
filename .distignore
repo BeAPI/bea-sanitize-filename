@@ -1,0 +1,16 @@
+.github/
+CHANGELOG.md
+composer.json
+LICENSE.md
+README.md
+
+./sync.sh \
+	--plugin-name="search-by-algolia-instant-relevant-results" \
+	--git-repo="https://github.com/algolia/algoliasearch-wordpress" \
+	--svn-user=algolia
+
+	./sync.sh \
+    	--plugin-name="bea-sanitize-filename" \
+    	--svn-user=MaximeCulea \
+    	--git-repo="https://github.com/BeAPI/bea-sanitize-filename" \
+    	--assets-dir="assets/images"
