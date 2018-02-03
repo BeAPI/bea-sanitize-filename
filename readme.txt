@@ -15,17 +15,17 @@ Remove all punctuation and accents from the filename of uploaded files.
 
 This plugin allows you to sanitize files on upload, which is pretty handy. It means all punctuation and accents from the filename of uploaded files will be removed.
 
-= Features
+## Features
 
 - All accented letters will be converted to same letters without accent
 - Special characters will be deleted
 - Underscores will be replaced by hyphens
 
-= Warning For Mac Owners
+## Warning For Mac Owners
 
 On MAC, you can also create an accented character with the combination of ` and the wanted letter. This has the effect to create a character with a special filename system encoding format which is not sanitized. An [issue](https://github.com/BeAPI/bea-sanitize-filename/issues/1) is already open about this.
 
-= Who ?
+## Who ?
 
 Created by [Be API](https://beapi.fr), the French WordPress leader agency since 2009. Based in Paris, we are more than 30 people and always [hiring](https://beapi.workable.com) some fun and talented guys. So we will be pleased to work with you.
 
@@ -33,10 +33,10 @@ This plugin is only maintained by the [Be API team](https://beapi.fr), which mea
 
 == Installation ==
 
-= Requirements =
+## Requirements
 - Tested up to 4.9.3.
 
-= WordPress =
+## WordPress
 - Download and install using the built-in WordPress plugin installer.
 - Site activate in the "Plugins" area of the admin.
 - Nothing more, this plugin is ready to use !
