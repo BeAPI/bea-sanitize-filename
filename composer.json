@@ -6,7 +6,8 @@
 		"wordpress-plugin",
 		"uploads",
 		"sanitize",
-		"wordpress-mu-plugin"
+		"wordpress-mu-plugin",
+	  	"media"
 	],
   "homepage":"https://github.com/BeAPI/bea-sanitize-filename",
   "authors": [
