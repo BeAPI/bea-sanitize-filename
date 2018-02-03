@@ -1,4 +1,5 @@
-.github/
+.github
+.git
 CHANGELOG.md
 composer.json
 LICENSE.md
