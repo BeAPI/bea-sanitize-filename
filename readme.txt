@@ -1,5 +1,5 @@
 === BEA - Sanitize Filename ===
-Contributors: beapi, maximeculea
+Contributors: beapi, maximeculea, momo360modena
 Donate link: http://paypal.me/BeAPI
 Tags: uploads, sanitize, media
 Requires at least: 4.0
