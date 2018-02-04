@@ -29,7 +29,9 @@ On MAC, you can also create an accented character with the combination of ` and 
 
 Created by [Be API](https://beapi.fr), the French WordPress leader agency since 2009. Based in Paris, we are more than 30 people and always [hiring](https://beapi.workable.com) some fun and talented guys. So we will be pleased to work with you.
 
-This plugin is only maintained by the [Be API team](https://beapi.fr), which means we do not guarantee some free support. Consider reporting an [issue](https://github.com/BeAPI/bea-sanitize-filename/issues) and be patient.
+This plugin is maintained by the [Be API team](https://beapi.fr), which means we do not guarantee some free support. Consider reporting an [issue](https://github.com/BeAPI/bea-sanitize-filename/issues) and be patient.
+
+To facilitate the process of submitting an issue and quicker answer, we only use Github, so don't use WP.Org support, it will not be considered. 
 
 == Installation ==
 
