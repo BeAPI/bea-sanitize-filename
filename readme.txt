@@ -33,10 +33,10 @@ This plugin is only maintained by the [Be API team](https://beapi.fr), which mea
 
 == Installation ==
 
-## Requirements
+= Requirements =
 - Tested up to 4.9.3.
 
-## WordPress
+= WordPress =
 - Download and install using the built-in WordPress plugin installer.
 - Site activate in the "Plugins" area of the admin.
 - Nothing more, this plugin is ready to use !
