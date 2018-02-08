@@ -66,12 +66,13 @@ function bea_sanitize_file_name( $file_name = '' ) {
 	$file_name = str_replace( $ext, '', $file_name );
 
 	// only lowercase
-	// replace _ by -
+	// remove accents
 	$file_name = sanitize_title( $file_name );
 
-	// remove accents
+	// replace _ by -
 	$file_name = str_replace( '_', '-', $file_name );
 
+	// Return sanitized file name
 	return $file_name . $ext;
 }
 add_filter( 'sanitize_file_name', 'bea_sanitize_file_name', 10, 1 );
