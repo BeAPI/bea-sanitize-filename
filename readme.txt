@@ -59,6 +59,9 @@ You just need to activate on each site.
 
 == Changelog ==
 
+= 2.0.3 - 12 Feb 2018 =
+- i18n
+
 = 2.0.0 - 02 Feb 2018 =
 - Go to WP
 
