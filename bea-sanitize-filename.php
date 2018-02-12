@@ -7,7 +7,7 @@
  Author: Be API Technical team
  Author URI: https://beapi.fr
  Domain Path: languages
- Text Domain: bea-media-analytics
+ Text Domain: bea-sanitize-filename
  Contributors: Amaury Balmer, Maxime Culea
   
  --------
