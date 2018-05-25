@@ -44,7 +44,11 @@ add_filter( 'sanitize_file_name_chars', 'bea_sanitize_file_name_chars', 10, 1 );
  */
 function bea_sanitize_file_name( $file_name ) {
 	// get extension
-	preg_match( '/\.[^\.]+$/i', $file_name, $ext );
+	$result = preg_match( '/\.[^\.]+$/i', $file_name, $ext );
+	if( 1 !== $result ) {
+		return $file_name;
+	}
+	
 	$ext = $ext[0];
 
 	// work only on the filename without extension

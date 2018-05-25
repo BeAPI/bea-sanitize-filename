@@ -32,25 +32,25 @@ class SanitizeFilenameTest extends \Codeception\TestCase\WPTestCase {
 	}*/
 
 	function test_convert_to_lowercase() {
-		$in = 'ABCDÇ';
+		$in  = 'ABCDÇ';
 		$out = 'abcdc';
 		$this->assertSame( $out, sanitize_file_name( $in ) );
 	}
 
 	function test_convert_underscore_to_dashes() {
-		$in = 'filename_with_underscore';
+		$in  = 'filename_with_underscore';
 		$out = 'filename-with-underscore';
 		$this->assertSame( $out, sanitize_file_name( $in ) );
 	}
 
 	function test_convert_spaces_to_dashes() {
-		$in = ' testing  filename with    lots of  spaces    ';
+		$in  = ' testing  filename with    lots of  spaces    ';
 		$out = 'testing-filename-with-lots-of-spaces';
 		$this->assertSame( $out, sanitize_file_name( $in ) );
 	}
 
 	function test_remove_custom_chars() {
-		$in = '’‘“”«»‹›—€[]{}';
+		$in  = '’‘“”«»‹›—€[]{}';
 		$out = '';
 		$this->assertSame( $out, sanitize_file_name( $in ) );
 	}
