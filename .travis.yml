@@ -6,7 +6,10 @@ notifications:
   email: false
 
 php:
+  - '5.4'
+  - '5.6'
   - '7.1'
+  - '7.2'
   - nightly
 
 matrix:
@@ -47,8 +50,13 @@ env:
     - WP_ADMIN_PASSWORD="admin"
   matrix:
     - WP_VERSION=latest
-    #- WP_VERSION=nightly
-    #- WP_VERSION=4.8.5
+    - WP_VERSION=nightly
+    - WP_VERSION=4.8.6
+    - WP_VERSION=4.7.10
+    - WP_VERSION=4.6.11
+    - WP_VERSION=4.5.14
+    - WP_VERSION=4.4.15
+    - WP_VERSION=4.3.16
 
 before_install:
   # create the databases that will be used in the tests
