@@ -24,11 +24,19 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+/**
+ * Add some special chats to espace to WordPress basic list
+ *
+ * @param array $special_chars
+ *
+ * @return array
+ */
 function bea_sanitize_file_name_chars( $special_chars = array() ) {
 	$special_chars = array_merge( array( '’', '‘', '“', '”', '«', '»', '‹', '›', '—', '€' ), $special_chars );
 
 	return $special_chars;
 }
+
 add_filter( 'sanitize_file_name_chars', 'bea_sanitize_file_name_chars', 10, 1 );
 
 /**
@@ -43,24 +51,17 @@ add_filter( 'sanitize_file_name_chars', 'bea_sanitize_file_name_chars', 10, 1 );
  * @return string
  */
 function bea_sanitize_file_name( $file_name ) {
-	// get extension
-	$result = preg_match( '/\.[^\.]+$/i', $file_name, $ext );
-	if( 1 !== $result ) {
-		return $file_name;
-	}
-	
-	$ext = $ext[0];
+	// get filedata.
+	$file_data = pathinfo( $file_name );
 
-	// work only on the filename without extension
-	$file_name = str_replace( $ext, '', $file_name );
+	// only lowercase, alphanumeric, - and _.
+	$file_data['filename'] = sanitize_title_with_dashes( $file_data['filename'] );
 
-	// only lowercase
-	// replace _ by -
-	$file_name = sanitize_title( $file_name );
+	// replace _ by -.
+	$file_data['filename'] = str_replace( '_', '-', $file_data['filename'] );
 
-	// remove accents
-	$file_name = str_replace( '_', '-', $file_name );
-
-	return $file_name . $ext;
+	$suffix = ! empty( $file_data['extension'] ) ? '.' . $file_data['extension'] : '';
+	return $file_data['filename'] . $suffix;
 }
+
 add_filter( 'sanitize_file_name', 'bea_sanitize_file_name', 10, 1 );
