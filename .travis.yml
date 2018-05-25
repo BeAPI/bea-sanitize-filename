@@ -94,6 +94,8 @@ before_script:
 
   # symbolically link the plugin root folder to the WordPress installation folder
   # if you are using wp-browser use the Symlinker extension and skip this
-  - ln -s $TRAVIS_BUILD_DIR $WP_FOLDER/wp-content/mu-plugins
+  - ln -s $TRAVIS_BUILD_DIR $WP_FOLDER/wp-content/plugins
+
+  - codecept build
 script:
-  - phpunit
+  - codecept run wpunit
