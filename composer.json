@@ -8,11 +8,12 @@
       "email": "technical@beapi.fr"
     }
   ],
-  "type" : "wordpress-muplugin",
-  "require" : {
-    "composer/installers" : "~1.0"
+  "type": "wordpress-muplugin",
+  "require": {
+    "composer/installers": "~1.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "^5.7"
+    "phpunit/phpunit": "^5.7",
+    "lucatume/wp-browser": "~1.0"
   }
 }
