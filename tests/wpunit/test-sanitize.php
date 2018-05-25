@@ -8,7 +8,7 @@
 /**
  * Sample test case.
  */
-class SanitizeFilenameTest extends WP_UnitTestCase {
+class SanitizeFilenameTest extends \Codeception\TestCase\WPTestCase {
 
 	function test_dummy() {
 		$this->assertSame( 'should-not-change.lol', sanitize_file_name( 'should-not-change.lol' ) );
