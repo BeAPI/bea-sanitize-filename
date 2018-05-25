@@ -77,9 +77,6 @@ install:
   # flush rewrite rules to use pretty permalinks
   - wp rewrite structure '/%postname%/' --hard
 
-  # update WordPress database to avoid prompts
-  - wp core update-db --network
-
   # get back to the build folder
   - cd $TRAVIS_BUILD_DIR
 
