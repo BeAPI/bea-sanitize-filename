@@ -55,7 +55,6 @@ env:
     - WP_VERSION=4.6.11
     - WP_VERSION=4.5.14
     - WP_VERSION=4.4.15
-    - WP_VERSION=4.3.16
 
 before_install:
   # create the databases that will be used in the tests
