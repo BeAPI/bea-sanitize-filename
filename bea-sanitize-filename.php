@@ -55,7 +55,7 @@ function bea_sanitize_file_name( $file_name ) {
 	$file_data = pathinfo( $file_name );
 
 	// only lowercase, alphanumeric, - and _.
-	$file_data['filename'] = sanitize_title_with_dashes( $file_data['filename'] );
+	$file_data['filename'] = sanitize_title( $file_data['filename'] );
 
 	// replace _ by -.
 	$file_data['filename'] = str_replace( '_', '-', $file_data['filename'] );
