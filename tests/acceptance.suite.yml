@@ -8,7 +8,6 @@
 actor: AcceptanceTester
 modules:
     enabled:
-        - WPDb
         - WPBrowser
         - \Helper\Acceptance
     config:
@@ -17,8 +16,8 @@ modules:
             user: '%DB_USER%'
             password: '%DB_PASSWORD%'
             dump: 'tests/_data/dump.sql'
-            populate: true #import the dump before the tests
-            cleanup: true #import the dump between tests
+            populate: false #import the dump before the tests
+            cleanup: false #import the dump between tests
             url: '%WP_URL%'
             urlReplacement: true #replace the hardcoded dump URL with the one above
             tablePrefix: '%TABLE_PREFIX%'
