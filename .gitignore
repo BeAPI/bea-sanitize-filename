@@ -1,3 +1,5 @@
 /vendor
 .env.local
 /wordpress
+
+codeception.yml
