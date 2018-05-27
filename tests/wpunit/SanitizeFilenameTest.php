@@ -25,12 +25,6 @@ class SanitizeFilenameTest extends \Codeception\TestCase\WPTestCase {
 		$this->assertSame( $out, sanitize_file_name( $in ) );
 	}
 
-	/*function test_replaces_combining_accents() {
-		$in  = 'àáâãäåçèéêëìíîïñòóôõöùúûüýÿ';
-		$out = 'aaaaaaceeeeiiiinooooouuuuyy';
-		$this->assertEquals( $out, sanitize_file_name( $in ) );
-	}*/
-
 	function test_convert_to_lowercase() {
 		$in  = 'ABCDÇ';
 		$out = 'abcdc';
