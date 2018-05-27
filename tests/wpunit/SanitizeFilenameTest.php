@@ -20,32 +20,32 @@ class SanitizeFilenameTest extends \Codeception\TestCase\WPTestCase {
 	}
 
 	function test_replaces_accents() {
-		$in  = 'àáâãäåæœçćčèéêëìíîïñòóôõöøùúûüýÿ';
-		$out = 'aaaaaaaeoeccceeeeiiiinoooooouuuuyy';
+		$in  = 'àáâãäåæœçćčèéêëìíîïñòóôõöøùúûüýÿ.jpg';
+		$out = 'aaaaaaaeoeccceeeeiiiinoooooouuuuyy.jpg';
 		$this->assertSame( $out, sanitize_file_name( $in ) );
 	}
 
 	function test_convert_to_lowercase() {
-		$in  = 'ABCDÇ';
-		$out = 'abcdc';
+		$in  = 'ABCDÇ.jpg';
+		$out = 'abcdc.jpg';
 		$this->assertSame( $out, sanitize_file_name( $in ) );
 	}
 
 	function test_convert_underscore_to_dashes() {
-		$in  = 'filename_with_underscore';
-		$out = 'filename-with-underscore';
+		$in  = 'filename_with_underscore.jpg';
+		$out = 'filename-with-underscore.jpg';
 		$this->assertSame( $out, sanitize_file_name( $in ) );
 	}
 
 	function test_convert_spaces_to_dashes() {
-		$in  = ' testing  filename with    lots of  spaces    ';
-		$out = 'testing-filename-with-lots-of-spaces';
+		$in  = ' testing  filename with    lots of  spaces    .jpg';
+		$out = 'testing-filename-with-lots-of-spaces.jpg';
 		$this->assertSame( $out, sanitize_file_name( $in ) );
 	}
 
 	function test_remove_custom_chars() {
-		$in  = '’‘“”«»‹›—€[]{}';
-		$out = '';
+		$in  = '’‘“”«»‹›—€[]{}.jpg';
+		$out = 'unnamed-file.jpg';
 		$this->assertSame( $out, sanitize_file_name( $in ) );
 	}
 }

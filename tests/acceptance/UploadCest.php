@@ -14,7 +14,7 @@ class UploadCest {
 		$I->wantTo('Test the upload abcd file');
 		$I->amOnPage('wp-admin/media-new.php');
 
-		$I->attachFile('#file-form input[type="file"]', 'ABCDÇ.jpg');
+		$I->attachFile('#async-upload', 'ABCDÇ.jpg');
 		$I->click('#file-form input[type="submit"]');
 		$I->see('abcdc.jpg');
 	}
@@ -23,7 +23,7 @@ class UploadCest {
 		$I->wantTo('Test the upload underscore file');
 		$I->amOnPage('wp-admin/media-new.php');
 
-		$I->attachFile('#file-form input[type="file"]', 'filename_with_underscore.jpg');
+		$I->attachFile('#async-upload', 'filename_with_underscore.jpg');
 		$I->click('#file-form input[type="submit"]');
 		$I->see('filename-with-underscore.jpg');
 
@@ -33,7 +33,7 @@ class UploadCest {
 		$I->wantTo('Test the upload spaced file');
 		$I->amOnPage('wp-admin/media-new.php');
 
-		$I->attachFile('#file-form input[type="file"]', 'testing  filename with    lots of  spaces    .jpg');
+		$I->attachFile('#async-upload', 'testing  filename with    lots of  spaces    .jpg');
 		$I->click('#file-form input[type="submit"]');
 		$I->see('testing-filename-with-lots-of-spaces.jpg');
 
@@ -43,7 +43,7 @@ class UploadCest {
 		$I->wantTo('Test the upload special chars file');
 		$I->amOnPage('wp-admin/media-new.php');
 
-		$I->attachFile('#file-form input[type="file"]', '’‘“”«»‹›—€[]{}.jpg');
+		$I->attachFile('#async-upload', '’‘“”«»‹›—€[]{}.jpg');
 		$I->click('#file-form input[type="submit"]');
 		$I->see('unnamed-file.jpg');
 

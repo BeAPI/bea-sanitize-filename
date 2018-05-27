@@ -8,6 +8,7 @@
 actor: AcceptanceTester
 modules:
     enabled:
+        - WPDb
         - WPBrowser
         - \Helper\Acceptance
     config:

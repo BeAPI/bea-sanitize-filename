@@ -9,14 +9,14 @@ modules:
         - \Helper\Wpunit
     config:
         WPLoader:
-            wpRootFolder: "%WP_ROOT_FOLDER%"
-            dbName: "%TEST_DB_NAME%"
-            dbHost: "%TEST_DB_HOST%"
-            dbUser: "%TEST_DB_USER%"
-            dbPassword: "%TEST_DB_PASSWORD%"
-            tablePrefix: "%TEST_TABLE_PREFIX%"
-            domain: "%WP_DOMAIN%"
-            adminEmail: "%ADMIN_EMAIL%"
+            wpRootFolder: "/app/wordpress/"
+            dbName: "wordpress"
+            dbHost: "database"
+            dbUser: "wordpress"
+            dbPassword: "wordpress"
+            tablePrefix: "wp_"
+            domain: "wp.localhost"
+            adminEmail: "admin@wp.localhost"
             title: "Test"        
             plugins: ['bea-sanitize-filename/bea-sanitize-filename.php']
             activatePlugins: ['bea-sanitize-filename/bea-sanitize-filename.php']

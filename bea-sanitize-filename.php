@@ -51,17 +51,25 @@ add_filter( 'sanitize_file_name_chars', 'bea_sanitize_file_name_chars', 10, 1 );
  * @return string
  */
 function bea_sanitize_file_name( $file_name ) {
-	// get filedata.
-	$file_data = pathinfo( $file_name );
+	// get extension
+	$result = preg_match( '/\.[^\.]+$/i', $file_name, $ext );
+	if ( 1 !== $result ) {
+		return $file_name;
+	}
 
-	// only lowercase, alphanumeric, - and _.
-	$file_data['filename'] = sanitize_title( $file_data['filename'] );
+	$ext = $ext[0];
 
-	// replace _ by -.
-	$file_data['filename'] = str_replace( '_', '-', $file_data['filename'] );
+	// work only on the filename without extension
+	$file_name = str_replace( $ext, '', $file_name );
 
-	$suffix = ! empty( $file_data['extension'] ) ? '.' . $file_data['extension'] : '';
-	return $file_data['filename'] . $suffix;
+	// only lowercase
+	// replace _ by -
+	$file_name = sanitize_title( $file_name );
+
+	// remove accents
+	$file_name = str_replace( '_', '-', $file_name );
+
+	return $file_name . $ext;
 }
 
 add_filter( 'sanitize_file_name', 'bea_sanitize_file_name', 10, 1 );
