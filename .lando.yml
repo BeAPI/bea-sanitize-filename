@@ -1,0 +1,19 @@
+name: wp
+recipe: wordpress
+config:
+  webroot: wordpress
+proxy:
+
+  # Proxy settings for the "web" service defined inside my compose.yml.
+  # NOTE: You can specify more than one service.
+  appserver:
+    - "wp.localhost"
+tooling:
+  # Runs composer install and a custom php script after your app starts
+  setup-tests:
+    service: appserver
+    cmd: "bin/lando-start.sh"
+  test:
+      service: appserver
+      cmd: composer test
+      description: Run our tests
