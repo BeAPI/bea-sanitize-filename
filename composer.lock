@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "68b431cac062f700c6653f8f9c21b44c",
+    "content-hash": "a38de5d6322e9b40b46130d6236f39ad",
     "packages": [
         {
             "name": "composer/installers",
@@ -1418,7 +1418,7 @@
         },
         {
             "name": "lucatume/wp-browser",
-            "version": "1.24.4",
+            "version": "dev-php-56-compat",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lucatume/wp-browser.git",
@@ -6107,7 +6107,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "lucatume/wp-browser": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
