@@ -16,6 +16,7 @@ class UploadCest {
 
 		$I->attachFile('#async-upload', 'ABCDÇ.jpg');
 		$I->click('#file-form input[type="submit"]');
+		$I->amOnPage('wp-admin/upload.php?mode=list');
 		$I->see('abcdc.jpg');
 	}
 
@@ -25,6 +26,7 @@ class UploadCest {
 
 		$I->attachFile('#async-upload', 'filename_with_underscore.jpg');
 		$I->click('#file-form input[type="submit"]');
+		$I->amOnPage('wp-admin/upload.php?mode=list');
 		$I->see('filename-with-underscore.jpg');
 
 	}
@@ -35,6 +37,7 @@ class UploadCest {
 
 		$I->attachFile('#async-upload', 'testing  filename with    lots of  spaces    .jpg');
 		$I->click('#file-form input[type="submit"]');
+		$I->amOnPage('wp-admin/upload.php?mode=list');
 		$I->see('testing-filename-with-lots-of-spaces.jpg');
 
 	}
@@ -45,6 +48,7 @@ class UploadCest {
 
 		$I->attachFile('#async-upload', '’‘“”«»‹›—€[]{}.jpg');
 		$I->click('#file-form input[type="submit"]');
+		$I->amOnPage('wp-admin/upload.php?mode=list');
 		$I->see('unnamed-file.jpg');
 
 	}
