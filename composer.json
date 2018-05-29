@@ -13,7 +13,7 @@
     "composer/installers": "~1.0"
   },
   "scripts": {
-      "test" : "vendor/bin/codecept run wpunit && vendor/bin/codecept run acceptance"
+      "test" : "vendor/bin/codecept run wpunit --debug && vendor/bin/codecept run acceptance --debug"
   },
 "require-dev": {
     "phpunit/phpunit": "^5.7",
