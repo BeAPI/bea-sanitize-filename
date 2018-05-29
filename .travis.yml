@@ -101,5 +101,5 @@ before_script:
 
   - codecept build
 script:
-  - codecept run wpunit --vvv
+  - codecept run wpunit
 # - codecept run acceptance
