@@ -57,4 +57,4 @@ If you really like what we do or want to thank us for our quick work, feel free 
 
 ## License
 
-BEA - Find Media is licensed under the [GPLv3 or later](LICENSE.md).
+BEA - Sanitize Filename is licensed under the [GPLv3 or later](LICENSE.md).
