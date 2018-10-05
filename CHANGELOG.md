@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.5 - 05 Oct 2018
+* #8 : Add More accentuated caracters 
+
 ## 2.0.5 - 12 Feb 2018
 * i18n
 
