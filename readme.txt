@@ -5,7 +5,7 @@ Tags: uploads, sanitize, media
 Requires at least: 4.0
 Requires php: 5.6
 Tested up to: 4.9.3
-Stable tag: trunk
+Stable tag: 2.0.6
 License: GPLv3 or later
 License URI: https://github.com/BeAPI/bea-sanitize-filename/blob/master/LICENSE.md
 
@@ -58,6 +58,9 @@ Yes.
 You just need to activate on each site.
 
 == Changelog ==
+
+= 2.0.6 - 05 Oct 2018 =
+- #8 : Add More accentuated caracters
 
 = 2.0.5 - 12 Feb 2018 =
 - i18n
