@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: BEA - Sanitize Filename
- Version: 2.0.5
+ Version: 2.0.6
  Plugin URI: https://github.com/BeAPI/bea-sanitize-filename
  Description: Remove all punctuation and accents from the filename of uploaded files.
  Author: Be API Technical team
@@ -34,7 +34,8 @@ function bea_sanitize_file_name_chars( $special_chars = array() ) {
 	$special_chars = array_merge( array( '’', '‘', '“', '”', '«', '»', '‹', '›', '—', '€', '©' ), $special_chars );
 	/**
 	 * Accentued caracters
-	 * @see : https://github.com/BeAPI/bea-sanitize-filename/issues/8
+	 * @see   https://github.com/BeAPI/bea-sanitize-filename/issues/8
+	 * @since 2.0.6
 	 */
 	$special_chars = array_merge( array( 'À','Á','Â','Ã','Ä','Å','Ç','È','É','Ê','Ë','Ì','Í','Î','Ï','Ò','Ó','Ô','Õ','Ö','Ù','Ú','Û','Ü','Ý','à','á','â','ã','ä','å','ç','è','é','ê','ë','ì','í','î','ï','ð','ò','ó','ô','õ','ö','ù','ú','û','ü','ý','ÿ' ), $special_chars );
 
