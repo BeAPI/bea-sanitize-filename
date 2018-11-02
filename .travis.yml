@@ -7,9 +7,9 @@ notifications:
 
 php:
 - '5.6'
-- '7.0'
-- '7.1'
-- '7.2'
+#- '7.0'
+#- '7.1'
+#- '7.2'
 
 services:
 - docker
@@ -26,35 +26,35 @@ addons:
     access_key:
       secure: "sIS2vs1Lc0AlYIswXMhqUCo/GSGK9dxjMmsMSpIpprbWUf4DH3PgW+YGIqvcAyvp1jfi7VoukneJ2YGpWkqO0c8EXkwWndw/R68Shd0sX7meJsnqf5e81DFo7DFnc+jMIdkP6rE3e8mVNKFjwuWFvpdB2kTDI5RejOjhsg0u0y/RpUeYlsiToq4KwtJ4ZGiigUnOsry6UQ7MH2H7Qn3Ok49JlSCQRWZOY1ae+fQgnFhUUkhvnpIZWID/bAqcGTDJ8kW1ALS/wRJeEYgGgyQOBMEbzVRrpjmpEBNePe/LwT24qgRjFwl5bD/74MCRaCTKV6FGBn2JMNoSZsTodjjnFCFrrI/h3w09DP+O3l3/KuWSKQiPbFpuGZmO3OkIkrZ4xMlFlSN1Oks8x5KWL9QG9gLWP+cDEH+pO8BwAd1xiisMYKwDOvSBgjtG1B46ZoNOXvVJ4pyPL9m3yYbpJsL+XNvd26Jkk+q2qARaDwKhgQD7NwZf4GPBfF8uLLrwnUS6fpO9mRSBfAADEaKqFN/rqkoLwgw2aQvxUYackgCtaIE9+p4QlnXWJ/8T8vDdjixuwqAa2fKqmqWmYyV2JgzBQ64K97oWZtptz1lQL8Mzq6j25KWtOwGjYP+XoNPH0l6pxsyFELfounlFVkYek8WT8Y0Krfb9Dis0FdgR9fAh+jo="
     forcelocal: true
-env:
-  global:
-  - WP_FOLDER="/wordpress"
-  - WP_URL="http://bea-sanitize-filename.lndo.site"
-  - WP_DOMAIN="bea-sanitize-filename.lndo.site"
-  - DB_NAME="wordpress"
-  - TEST_DB_NAME="wpTests"
-  - WP_TABLE_PREFIX="wp_"
-  - WP_ADMIN_USERNAME="admin"
-  - WP_ADMIN_PASSWORD="admin"
-  matrix:
-  - WP_VERSION=latest
-  - WP_VERSION=nightly
-  - WP_VERSION=4.8.6
-  - WP_VERSION=4.7.10
-  - WP_VERSION=4.6.11
-  - WP_VERSION=4.5.14
-  - WP_VERSION=4.4.15
-
-before_install:
-- sudo apt-get -y update
-- sudo apt-get -y install cgroup-bin curl
-- curl -L -o /tmp/lando-latest.deb https://github.com/lando/lando/releases/download/v3.0.0-rc.1/lando-v3.0.0-rc.1.deb
-- sudo dpkg -i /tmp/lando-latest.deb
-- lando version
-- phpenv version-name
-- ./bin/lando-start.sh $WP_VERSION fr_FR $(phpenv version-name)
-- lando info
+#env:
+#  global:
+#  - WP_FOLDER="/wordpress"
+#  - WP_URL="http://bea-sanitize-filename.lndo.site"
+#  - WP_DOMAIN="bea-sanitize-filename.lndo.site"
+#  - DB_NAME="wordpress"
+#  - TEST_DB_NAME="wpTests"
+#  - WP_TABLE_PREFIX="wp_"
+#  - WP_ADMIN_USERNAME="admin"
+#  - WP_ADMIN_PASSWORD="admin"
+#  matrix:
+#  - WP_VERSION=latest
+#  - WP_VERSION=nightly
+#  - WP_VERSION=4.8.6
+#  - WP_VERSION=4.7.10
+#  - WP_VERSION=4.6.11
+#  - WP_VERSION=4.5.14
+#  - WP_VERSION=4.4.15
+#
+#before_install:
+#- sudo apt-get -y update
+#- sudo apt-get -y install cgroup-bin curl
+#- curl -L -o /tmp/lando-latest.deb https://github.com/lando/lando/releases/download/v3.0.0-rc.1/lando-v3.0.0-rc.1.deb
+#- sudo dpkg -i /tmp/lando-latest.deb
+#- lando version
+#- phpenv version-name
+#- ./bin/lando-start.sh $WP_VERSION fr_FR $(phpenv version-name)
+#- lando info
 
 script:
-- true
-- lando test
+#- true
+#- lando test
