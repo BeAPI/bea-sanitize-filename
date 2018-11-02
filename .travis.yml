@@ -53,6 +53,7 @@ before_install:
   - lando version
   - phpenv version-name
   - ./bin/lando-start.sh $WP_VERSION fr_FR $(phpenv version-name)
+  - lando info
 
 script:
   - true
