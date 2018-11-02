@@ -24,7 +24,7 @@ addons:
   browserstack:
     username: "johannalucie1"
     access_key:
-      secure: "$BROWSERSTACK_ACCESS_KEY"
+      secure: "iaXId/+z21s+189Tg9BuN8CBun9qHtLfOj/S2XAAwsxw0b2fUQfg1AlKBp2UHHzAcqumTwhoWCiMkSZ71150h4SNv0UPsmKe5F1tm55kbQy8vKSXsOxaDkfMGVNVZcDJ8eNwiYtQH6tBgE7cdf4dzcWzK1MXX/x/tkLvvodkaf4iCloSmVKBSluGGMYWcdLUIAgl9CySYW6ZfmIU+0kssCQbP0CK/ulmHAZrHtuivpNiVOYJNDxBl8wGdmmtKeRViFyFijVvdMnzkkyImrG3TdAr74prbwUzkJT01C9yI7k0uZM7pzsuW8V6yTWJG0a1Z8+mo79hKBLAgVkJ5l88c0Cxfpq2/+BvrfW5qKqlA2qo56zvK4djj5GrfqHrxpdmTDa3ArxcLvmM9vULOeJqlGpdAlQw31mPcD+xDKIu7BPvjbf5X0SEPS8a25yVaqixLjg6tD+wH5C2ZEW9/4GYYaIlxicRYEfMwzS2YWD1HTbxHINScywpMkAe65CazNiJPVy3zHfMlfvCCFnA9ZqxuaZG7VaAp5ZkH3StJzG6hzj/yGdmmhftGyqB+jybuOFPxRf/j9CjKhC+m0NjBbPUcfg/uRw4L0PIzrEW5JieW8lNC/3Kp0YpiviFlgSRXzWyT/oVmgctCCLB/LDn0pMXwXwwK207WgYyLHN1Q9bYs70="
 #env:
 #  global:
 #  - WP_FOLDER="/wordpress"
