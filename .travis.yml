@@ -22,9 +22,9 @@ cache:
 
 addons:
   browserstack:
-    username: $BROWSERSTACK_KEY
+    username: $BROWSERSTACK_USER
     access_key:
-      secure: $BROWSERSTACK_USER
+      secure : $BROWSERSTACK_KEY
     forcelocal: true
 env:
   global:
