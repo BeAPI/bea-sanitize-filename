@@ -24,7 +24,7 @@ addons:
   browserstack:
     username: $BROWSERSTACK_USER
     access_key:
-      secure : $BROWSERSTACK_KEY
+      secure: "Thke1u03rlX68wf4QN+RX1wa/mmXfB9sTDrRYRx65wgXWSRgpsg53U/Xpbuold5m7DTZ5mDYe9qRVrgBNwAofS1Wn+ihP2kvbc6XR8wrGJP/e8uz+zvrw5q+R0JE9sIhAQqb7SyIjHh0PWyZjpnMl69eT9p9jMttRpgW0EHQEZj31wBz3PFMV5OLQW6jndQ3QRf0YNHcri3tjL3keL6cFzEfQL+3S8g7kvvz4vghV4avoXuwMA4BL3flmYL9dgZ/fgDMrhQ7lLzCxj/6Gc5HOfvNwOU0Z78835n3zq0iWvdtDUw0TGuJMluiOr4W6KUf6le720kxC9cRc0YhUwrSNiEcoC6lUGJX6hNhiQUJSAjR7CckFrE4c8TyqYR6vqVz35xtq0LUoSa63pbRwyO/AZB/rPddysichxFGnxRBmVQFe+vLQIoe1x95PoPp8Fsf9d/G6h9XypncPBN7g1KG6w7CRLebpIYZQ1zPvpY5rEa4Hwz+fNFkKPGcssEh4lOfi/jk7O5+GALmoOTelcQiHY8qVnL3XsIiJEyTLlJxo1X7mcYk5u/Dbg2bXSMtrJojzCH5zflzrCgjOTiyiFzG668NeJ+DzSNXPaG42Xpj6+SuaLGetKeKZ53XlaYoK0Y2hhD0h3YfscFOwIHdO4MRpCebGeavgOVouvTgu4M6680="
     forcelocal: true
 env:
   global:
