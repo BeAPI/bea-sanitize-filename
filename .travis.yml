@@ -22,7 +22,9 @@ cache:
 
 addons:
   browserstack:
-    forcelocal: true
+    username: "johannalucie1"
+    access_key:
+      secure: "$BROWSERSTACK_ACCESS_KEY"
 #env:
 #  global:
 #  - WP_FOLDER="/wordpress"
