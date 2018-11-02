@@ -10,13 +10,12 @@ modules:
     config:
         WPLoader:
             wpRootFolder: "%WP_ROOT_FOLDER%"
-            dbName: "%DB_NAME%"
-            dbHost: "%DB_HOST%"
-            dbUser: "%DB_USER%"
-            dbPassword: "%DB_PASSWORD%"
-            tablePrefix: "%TABLE_PREFIX%"
+            dbName: "%TEST_DB_NAME%"
+            dbHost: "%TEST_DB_HOST%"
+            dbUser: "%TEST_DB_USER%"
+            dbPassword: "%TEST_DB_PASSWORD%"
+            tablePrefix: "%TEST_TABLE_PREFIX%"
             domain: "%WP_DOMAIN%"
-            adminEmail: "%ADMIN_EMAIL%"
-            title: "Test"
+            adminEmail: "%ADMIN_EMAIL"
             plugins: ['bea-sanitize-filename/bea-sanitize-filename.php']
             activatePlugins: ['bea-sanitize-filename/bea-sanitize-filename.php']

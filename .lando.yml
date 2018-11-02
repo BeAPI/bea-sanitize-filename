@@ -1,19 +1,53 @@
-name: wp
+name: bea-sanitize-filename
 recipe: wordpress
 config:
   webroot: wordpress
-proxy:
+  php: '7.0'
+services:
+  chromedriver:
+    type: compose
+    services:
+      image: robcherry/docker-chromedriver:latest
+      expose:
+      - "4444"
+      environment:
+        CHROMEDRIVER_WHITELISTED_IPS: ""
+        CHROMEDRIVER_URL_BASE: "/wd/hub"
+        CHROMEDRIVER_EXTRA_ARGS: "--ignore-certificate-errors --reduce-security-for-testing --enable-features=NetworkService"
+      security_opt:
+      - seccomp:unconfined
+      command: ["/usr/local/bin/supervisord", "-c", "/etc/supervisord.conf"]
 
-  # Proxy settings for the "web" service defined inside my compose.yml.
-  # NOTE: You can specify more than one service.
   appserver:
-    - "wp.localhost"
+    run_as_root:
+    - "cd /usr/local/bin"
+    - "wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip"
+    - "unzip BrowserStackLocal-linux-x64.zip"
+    - "chmod +x BrowserStackLocal"
+    - "rm BrowserStackLocal-linux-x64.zip"
+  database:
+    run:
+    - "mysql -u root -e 'CREATE DATABASE IF NOT EXISTS wpTests;'"
+    - "mysql -u root -e 'GRANT ALL PRIVILEGES ON *.* TO 'wordpress';'"
+    - "mysql -u root -e 'FLUSH PRIVILEGES;'"
 tooling:
   # Runs composer install and a custom php script after your app starts
   setup-tests:
     service: appserver
     cmd: "bin/lando-start.sh"
   test:
+    service: appserver
+    cmd: composer test
+    description: Run our tests
+  test-local:
       service: appserver
-      cmd: composer test
-      description: Run our tests
+      cmd: composer test-local
+      description: Run our tests locally
+  bash:
+    service: appserver
+  launch-chromedriver:
+    service: chromedriver
+    description: "Run chromedriver commands."
+  launch-browserstack:
+    service: appserver
+    cmd: 'BrowserStackLocal'

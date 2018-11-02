@@ -11,14 +11,8 @@ php:
   - '7.1'
   - '7.2'
 
-matrix:
-  fast_finish: true
-  allow_failures:
-    - php: nightly
-    - env: WP_VERSION=nightly
-
 services:
-  - mysql
+  - docker
 
 cache:
   apt: true
@@ -26,23 +20,12 @@ cache:
     - vendor
     - $HOME/.composer/cache/files
 
-addons:
-  apt:
-    packages:
-      # required by WordPress
-      - libjpeg-dev
-      - libpng12-dev
-      - php5-fpm
-      - php5-mysql
-      - nginx
-  hosts:
-    - wp.localhost
 env:
   global:
-    - WP_FOLDER="/tmp/wordpress"
-    - WP_URL="http://wp.localhost"
-    - WP_DOMAIN="wp.localhost"
-    - DB_NAME="test"
+    - WP_FOLDER="/wordpress"
+    - WP_URL="http://bea-sanitize-filename.lndo.site"
+    - WP_DOMAIN="bea-sanitize-filename.lndo.site"
+    - DB_NAME="wordpress"
     - TEST_DB_NAME="wploader"
     - WP_TABLE_PREFIX="wp_"
     - WP_ADMIN_USERNAME="admin"
@@ -57,52 +40,20 @@ env:
     - WP_VERSION=4.4.15
 
 before_install:
-  # create the databases that will be used in the tests
-  - mysql -e "create database IF NOT EXISTS $DB_NAME;" -uroot
-  - mysql -e "create database IF NOT EXISTS $TEST_DB_NAME;" -uroot
-  # set up folders
-  - mkdir -p $WP_FOLDER
-  - mkdir tools
-  # install wp-cli in the `tools` folder
-  - wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -P $(pwd)/tools/
-  - chmod +x tools/wp-cli.phar && mv tools/wp-cli.phar tools/wp
-  # append the `tools` folder to the PATH
-  - export PATH=$PATH:$(pwd)/tools
-  # prepend the `vendor/bin` folder the PATH
-  - export PATH=vendor/bin:$PATH
+  - sudo apt-get -y update
+  - sudo apt-get -y install cgroup-bin curl
+  - curl -L -o /tmp/lando-latest.deb https://github.com/lando/lando/releases/download/v3.0.0-rc.1/lando-v3.0.0-rc.1.deb
+  - sudo dpkg -i /tmp/lando-latest.deb
+  - lando version
+  - ./test/lando-setup.sh
+  - lando launch-chromedriver
 
-install:
-  - composer install --prefer-dist
-
-  # install WordPress in the `wordpress` folder
-  - cd $WP_FOLDER
-  - wp core download --version=$WP_VERSION
-  - wp config create --dbname="$DB_NAME" --dbuser="root" --dbpass="" --dbhost="127.0.0.1" --dbprefix="$WP_TABLE_PREFIX"
-  - wp core install --url="$WP_URL" --title="Test" --admin_user="$WP_ADMIN_USERNAME" --admin_password="$WP_ADMIN_PASSWORD" --admin_email="admin@$WP_DOMAIN" --skip-email
-
-  # flush rewrite rules to use pretty permalinks
-  - wp rewrite structure '/%postname%/' --hard
-
-  # get back to the build folder
-  - cd $TRAVIS_BUILD_DIR
-
-  # copy the Nginx configuration file to the default site and replace the path and domain
-  - sudo cp bin/travis-nginx-conf /etc/nginx/sites-available/$WP_DOMAIN
-  - sudo sed -e "s?%WP_FOLDER%?$WP_FOLDER?g" --in-place /etc/nginx/sites-available/$WP_DOMAIN
-  - sudo sed -e "s?%WP_DOMAIN%?$WP_DOMAIN?g" --in-place /etc/nginx/sites-available/$WP_DOMAIN
-
-  # enable the WordPress installation
-  - sudo ln -s /etc/nginx/sites-available/$WP_DOMAIN /etc/nginx/sites-enabled/
 
 before_script:
-  - sudo service php5-fpm restart
-  - sudo service nginx restart
 
-  # symbolically link the plugin root folder to the WordPress installation folder
-  # if you are using wp-browser use the Symlinker extension and skip this
-  - ln -s $TRAVIS_BUILD_DIR $WP_FOLDER/wp-content/plugins
+- codecept build
 
-  - codecept build
 script:
-  - codecept run wpunit
-# - codecept run acceptance
+  - true
+  - codecept run acceptance --env desktop
+  - codecept run acceptance --env mobile
