@@ -20,6 +20,12 @@ cache:
     - vendor
     - $HOME/.composer/cache/files
 
+addons:
+  browserstack:
+    username: $BROWSERSTACK_KEY
+    access_key:
+      secure: $BROWSERSTACK_USER
+    forcelocal: true
 env:
   global:
     - WP_FOLDER="/wordpress"
@@ -47,7 +53,6 @@ before_install:
   - lando version
   - phpenv version-name
   - ./bin/lando-start.sh $WP_VERSION fr_FR $(phpenv version-name)
-  - lando launch-browserstack -F -k $BROWSERSTACK_KEY --daemon start
 
 script:
   - true
