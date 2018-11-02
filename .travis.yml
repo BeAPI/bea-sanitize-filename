@@ -26,7 +26,7 @@ env:
     - WP_URL="http://bea-sanitize-filename.lndo.site"
     - WP_DOMAIN="bea-sanitize-filename.lndo.site"
     - DB_NAME="wordpress"
-    - TEST_DB_NAME="wploader"
+    - TEST_DB_NAME="wpTests"
     - WP_TABLE_PREFIX="wp_"
     - WP_ADMIN_USERNAME="admin"
     - WP_ADMIN_PASSWORD="admin"
@@ -46,7 +46,7 @@ before_install:
   - sudo dpkg -i /tmp/lando-latest.deb
   - lando version
   - ./bin/lando-start.sh $WP_VERSION fr_FR $(phpenv version-name)
-  - lando launch-browserstack -k $BROWSERSTACK_KEY &
+  - lando launch-browserstack -F -k $BROWSERSTACK_KEY --daemon start
 
 script:
   - true
