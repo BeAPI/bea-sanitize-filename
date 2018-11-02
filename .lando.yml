@@ -22,7 +22,7 @@ services:
     run_as_root:
     - "cd /usr/local/bin"
     - "wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip"
-    - "unzip BrowserStackLocal-linux-x64.zip"
+    - "unzip -o BrowserStackLocal-linux-x64.zip"
     - "chmod +x BrowserStackLocal"
     - "rm BrowserStackLocal-linux-x64.zip"
   database:
