@@ -51,7 +51,7 @@ lando wp db reset \
     --path=/app/wordpress/ \
     --yes
 
-wp_url="$(lando info | grep -A4 '"urls": \[$' | tail -n 1 | cut -d'"' -f2)"
+wp_url="https://beasanitizefilename.lndo.site"
 lando wp core install \
     --path=/app/wordpress/ \
     --url="$wp_url" \
