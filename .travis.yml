@@ -45,7 +45,7 @@ before_install:
   - curl -L -o /tmp/lando-latest.deb https://github.com/lando/lando/releases/download/v3.0.0-rc.1/lando-v3.0.0-rc.1.deb
   - sudo dpkg -i /tmp/lando-latest.deb
   - lando version
-  - ./bin/lando-start.sh $WP_VERSION
+  - ./bin/lando-start.sh $WP_VERSION $(phpenv version-name)
   - lando launch-browserstack -k $BROWSERSTACK_KEY &
 
 before_script:
