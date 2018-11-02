@@ -22,9 +22,6 @@ cache:
 
 addons:
   browserstack:
-    username: "johannalucie1"
-    access_key:
-      secure: "sIS2vs1Lc0AlYIswXMhqUCo/GSGK9dxjMmsMSpIpprbWUf4DH3PgW+YGIqvcAyvp1jfi7VoukneJ2YGpWkqO0c8EXkwWndw/R68Shd0sX7meJsnqf5e81DFo7DFnc+jMIdkP6rE3e8mVNKFjwuWFvpdB2kTDI5RejOjhsg0u0y/RpUeYlsiToq4KwtJ4ZGiigUnOsry6UQ7MH2H7Qn3Ok49JlSCQRWZOY1ae+fQgnFhUUkhvnpIZWID/bAqcGTDJ8kW1ALS/wRJeEYgGgyQOBMEbzVRrpjmpEBNePe/LwT24qgRjFwl5bD/74MCRaCTKV6FGBn2JMNoSZsTodjjnFCFrrI/h3w09DP+O3l3/KuWSKQiPbFpuGZmO3OkIkrZ4xMlFlSN1Oks8x5KWL9QG9gLWP+cDEH+pO8BwAd1xiisMYKwDOvSBgjtG1B46ZoNOXvVJ4pyPL9m3yYbpJsL+XNvd26Jkk+q2qARaDwKhgQD7NwZf4GPBfF8uLLrwnUS6fpO9mRSBfAADEaKqFN/rqkoLwgw2aQvxUYackgCtaIE9+p4QlnXWJ/8T8vDdjixuwqAa2fKqmqWmYyV2JgzBQ64K97oWZtptz1lQL8Mzq6j25KWtOwGjYP+XoNPH0l6pxsyFELfounlFVkYek8WT8Y0Krfb9Dis0FdgR9fAh+jo="
     forcelocal: true
 #env:
 #  global:
