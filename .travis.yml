@@ -48,11 +48,6 @@ before_install:
   - ./bin/lando-start.sh $WP_VERSION fr_FR $(phpenv version-name)
   - lando launch-browserstack -k $BROWSERSTACK_KEY &
 
-before_script:
-
-- codecept build
-
 script:
   - true
-  - codecept run acceptance --env desktop
-  - codecept run acceptance --env mobile
+  - lando test
