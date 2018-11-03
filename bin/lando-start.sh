@@ -13,12 +13,6 @@ cd ..
 # Hack - awaiting https://github.com/lando/lando/pull/750
 perl -pi -we "s/^  php: .*/  php: '$PHP_VERSION'/" .lando.yml
 
-
-# BrowsterStack Local installation
-wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip
-unzip BrowserStackLocal-linux-x64.zip
-rm BrowserStackLocal-linux-x64.zip
-
 lando start -v
 lando wp --version || lando bash test/install-wp-cli.sh
 rm -rf wordpress/[a-z]*
