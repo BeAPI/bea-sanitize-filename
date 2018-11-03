@@ -28,6 +28,48 @@ We assume this is a must have plugin, so it's recommended to use at it as mu-plu
 On MAC, you can also create an accented character with the combination of *`* and the wanted letter. This has the effect to create a character with a special filename system encoding format which is not sanitized.
 An [issue](https://github.com/BeAPI/bea-sanitize-filename/issues/1) is open about this.
 
+## Testing
+
+### Introduction
+
+The tests are based on [WP-Browser](https://github.com/lucatume/wp-browser).
+
+You have WPUnit and Acceptance tests.  
+
+### Installation
+
+1. Install [Lando](https://docs.devwithlando.io/installation/installing.html)
+2. From command line into the project folder execute `./bin/lando-start.sh`
+3. From command line into the project folder execute `lando composer install`
+
+The local url will be https://beasanitizefilename.lndo.site and credentials will be
+* user : admin
+* password : admin
+
+### Tools
+To test the code, just launch :
+* For Wpunit tests and desktop : `lando test-local`
+* For desktop mobile : `lando test-mobile`
+
+If you need to test the code on BrowserStack, you need to define two environments variables :
+* `BROWSERSTACK_USERNAME_REAL` : the usernmae of your browserStack account
+* `BROWSERSTACK_KEY` : the key of your browserStack account
+
+/!\ Do not commit theses credentials /!\
+
+## Customization
+
+Need to customize the environment variables ? every codeception file can be overrided bit by bit by creating a new file without the .dist.
+So to customize the .env file you'l need to :
+
+* Create a codeception.yml file
+* Put into the file :
+```
+params:
+- .env.local
+```
+* Create a .env.local file and change the desired environment variables like `BROWSERSTACK_KEY`
+
 ## Changelog
 
 ### 1.0.2 - 08 Sept 2017
