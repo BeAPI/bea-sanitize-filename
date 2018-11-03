@@ -51,7 +51,7 @@ modules:
         capabilities:
           browserstack.user: '%BROWSERSTACK_USERNAME_REAL%'
           browserstack.key: '%BROWSERSTACK_KEY%'
-          browserstack.local: false # Enable de the browsetStack local
+          browserstack.local: true # Enable de the browsetStack local
           browserstack.debug: true # Debug and capture videos/screenshots
           acceptSslCerts: true
           project: 'bea-sanitize-filename'
