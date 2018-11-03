@@ -44,4 +44,4 @@ tooling:
     description: "Run chromedriver commands."
   launch-browserstack:
     service: appserver
-    cmd: 'BrowserStackLocal'
+    cmd: ./bin/lando-browserstack.sh
