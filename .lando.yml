@@ -39,9 +39,6 @@ tooling:
       description: Run our tests locally
   bash:
     service: appserver
-  launch-chromedriver:
-    service: chromedriver
-    description: "Run chromedriver commands."
   launch-browserstack:
     service: appserver
     cmd: ./bin/lando-browserstack.sh
