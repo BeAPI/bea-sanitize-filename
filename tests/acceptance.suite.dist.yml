@@ -45,7 +45,7 @@ modules:
         adminUsername: '%ADMIN_USERNAME%'
         adminPassword: '%ADMIN_PASSWORD%'
         adminPath: '%WP_ADMIN_PATH%'
-        host: '%BROWSERSTACK_USER%:%BROWSERSTACK_KEY%@hub-cloud.browserstack.com'
+        host: '%BROWSERSTACK_USERNAME_REAL%:%BROWSERSTACK_KEY%@hub-cloud.browserstack.com'
         port: 80
         browser: chrome
         capabilities:

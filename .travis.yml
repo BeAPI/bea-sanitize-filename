@@ -51,7 +51,7 @@ before_install:
 - sudo dpkg -i /tmp/lando-latest.deb
 - lando version
 - phpenv version-name
-- WP_VERSION=$WP_VERSION PHP_VERSION=$(phpenv version-name) ./bin/lando-start.sh
+- WP_VERSION=$WP_VERSION WP_LOCALE=en_US PHP_VERSION=$(phpenv version-name) ./bin/lando-start.sh
 - lando info
 
 script:
