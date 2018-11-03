@@ -2,6 +2,7 @@
 
 
 class UploadCest {
+
 	public function _before( AcceptanceTester $I ) {
 		$I->loginAsAdmin();
 	}
@@ -10,20 +11,20 @@ class UploadCest {
 		$I->wantTo( 'Test the upload abcd file' );
 		$I->amOnPage( 'wp-admin/media-new.php?browser-uploader' );
 
-		$I->attachFile( '#async-upload', 'ABCDÇ.jpg' );
+		$I->attachFile( '#async-upload', 'ABCDEC.jpg' );
 		$I->click( '#file-form input[type="submit"]' );
 		$I->amOnPage( 'wp-admin/upload.php?mode=list' );
-		$I->see( 'abcdc.jpg' );
+		$I->see( 'ABCDEC.jpg' );
 	}
 
 	public function TestUnderscore( AcceptanceTester $I ) {
 		$I->wantTo( 'Test the upload underscore file' );
 		$I->amOnPage( 'wp-admin/media-new.php?browser-uploader' );
 
-		$I->attachFile( '#async-upload', 'filename_with_underscore.jpg' );
+		$I->attachFile( '#async-upload', 'filename-with_underscore.jpg' );
 		$I->click( '#file-form input[type="submit"]' );
 		$I->amOnPage( 'wp-admin/upload.php?mode=list' );
-		$I->see( 'filename-with-underscore.jpg' );
+		$I->see( 'filename-with_underscore.jpg' );
 
 	}
 
@@ -34,7 +35,7 @@ class UploadCest {
 		$I->attachFile( '#async-upload', 'testing  filename with    lots of  spaces    .jpg' );
 		$I->click( '#file-form input[type="submit"]' );
 		$I->amOnPage( 'wp-admin/upload.php?mode=list' );
-		$I->see( 'testing-filename-with-lots-of-spaces.jpg' );
+		$I->see( 'testing-filename-with-lots-of-spaces-.jpg' );
 
 	}
 
