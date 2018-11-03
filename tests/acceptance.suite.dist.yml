@@ -45,10 +45,12 @@ modules:
         adminUsername: '%ADMIN_USERNAME%'
         adminPassword: '%ADMIN_PASSWORD%'
         adminPath: '%WP_ADMIN_PATH%'
-        host: '%BROWSERSTACK_USERNAME_REAL%:%BROWSERSTACK_KEY%@hub-cloud.browserstack.com'
+        host: 'hub-cloud.browserstack.com'
         port: 80
         browser: chrome
         capabilities:
+          browserstack.user: '%BROWSERSTACK_USERNAME_REAL%'
+          browserstack.key: '%BROWSERSTACK_KEY%'
           browserstack.local: true # Enable de the browsetStack local
           browserstack.debug: true # Debug and capture videos/screenshots
           acceptSslCerts: true
