@@ -56,4 +56,4 @@ before_install:
 
 script:
 - true
-- lando test
+- BROWSERSTACK_KEY=$BROWSERSTACK_KEY BROWSERSTACK_USERNAME_REAL=$BROWSERSTACK_USERNAME_REAL lando test
