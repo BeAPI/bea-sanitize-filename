@@ -19,7 +19,7 @@
     "process-timeout": 3600
   },
   "scripts": {
-    "test": "vendor/bin/codecept run wpunit && vendor/bin/codecept run acceptance --env desktop --env mobile_ios --env mobile_android",
+    "test": "vendor/bin/codecept run wpunit && vendor/bin/codecept run acceptance --env desktop",
     "test-local": "rm -rf wordpress/wp-content/uploads/ && vendor/bin/codecept run wpunit && vendor/bin/codecept run acceptance --env local",
     "test-local-mobile": "rm -rf wordpress/wp-content/uploads/ && vendor/bin/codecept run acceptance --env=local-mobile",
 
