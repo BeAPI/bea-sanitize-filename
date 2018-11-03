@@ -49,6 +49,7 @@ before_install:
 - sudo apt-get -y install cgroup-bin curl
 - curl -L -o /tmp/lando-latest.deb https://github.com/lando/lando/releases/download/v3.0.0-rc.1/lando-v3.0.0-rc.1.deb
 - sudo dpkg -i /tmp/lando-latest.deb
+- echo $BROWSERSTACK_USERNAME_REAL
 - BROWSERSTACK_KEY=$BROWSERSTACK_KEY BROWSERSTACK_USER=$BROWSERSTACK_USERNAME_REAL ./bin/travis-env.sh
 - WP_VERSION=$WP_VERSION WP_LOCALE=en_US PHP_VERSION=$(phpenv version-name) ./bin/lando-start.sh
 - lando info

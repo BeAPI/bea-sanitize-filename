@@ -21,11 +21,9 @@ services:
   appserver:
     run_as_root:
     - "cd /usr/local/bin && wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip && unzip -o BrowserStackLocal-linux-x64.zip && chmod +x BrowserStackLocal && rm BrowserStackLocal-linux-x64.zip"
-  database:
-    run:
-    - "mysql -u root -e 'CREATE DATABASE IF NOT EXISTS wpTests;'"
-    - "mysql -u root -e 'GRANT ALL PRIVILEGES ON *.* TO 'wordpress';'"
-    - "mysql -u root -e 'FLUSH PRIVILEGES;'"
+    - "mysql -u root -h database -e 'CREATE DATABASE IF NOT EXISTS wpTests;'"
+    - "mysql -u root -h database -e 'GRANT ALL PRIVILEGES ON *.* TO 'wordpress';'"
+    - "mysql -u root -h database -e 'FLUSH PRIVILEGES;'"
 tooling:
   # Runs composer install and a custom php script after your app starts
   setup-tests:
