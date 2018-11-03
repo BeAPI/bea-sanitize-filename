@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-BrowserStackLocal --key=${BROWSERSTACK_KEY}
+BrowserStackLocal -F --key=${BROWSERSTACK_KEY} --daemon start

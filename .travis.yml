@@ -53,7 +53,7 @@ before_install:
 - echo $BROWSERSTACK_USERNAME_REAL
 - BROWSERSTACK_KEY=$BROWSERSTACK_KEY BROWSERSTACK_USER=$BROWSERSTACK_USERNAME_REAL ./bin/travis-env.sh
 - WP_VERSION=$WP_VERSION WP_LOCALE=en_US PHP_VERSION=$(phpenv version-name) ./bin/lando-start.sh
-- lando info
+- lando launch-browserstack
 
 script:
 - true
