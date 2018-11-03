@@ -20,7 +20,8 @@
   },
   "scripts": {
     "test": "vendor/bin/codecept run wpunit && vendor/bin/codecept run acceptance --env desktop --env mobile_ios --env mobile_android",
-    "test-local": "vendor/bin/codecept run wpunit --env local && vendor/bin/codecept run acceptance --env local UploadCest:TestABCD",
+    "test-local": "rm -rf wordpress/wp-content/uploads/ && vendor/bin/codecept run wpunit && vendor/bin/codecept run acceptance --env local",
+    "test-local-mobile": "rm -rf wordpress/wp-content/uploads/ && vendor/bin/codecept run acceptance --env=local-mobile",
 
     "coding-standards": [
       "./vendor/bin/phpcs --config-set installed_paths ../../wp-coding-standards/wpcs/  && ./vendor/bin/phpcs --standard=phpcs.xml.dist ./ -p"
