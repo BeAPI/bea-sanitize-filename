@@ -82,6 +82,13 @@ function bea_sanitize_file_name( $file_name = '' ) {
 	// replace undescore(_) with dash(-)
 	$file_name = str_replace( '_', '-', $file_name );
 
+	// remove contiguous dashes
+	$file_name = preg_replace(
+		'@-(?=-)@', //select all dashes follow by another dash
+		'',
+		$file_name
+	);
+
 	// Return sanitized file name
 	return $file_name . '.' . $ext;
 }
