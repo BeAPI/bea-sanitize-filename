@@ -69,11 +69,17 @@ function bea_sanitize_file_name( $file_name = '' ) {
 	// work only on the filename without extension
 	$file_name = str_replace( '.' . $ext, '', $file_name );
 
-	// only lowercase
-	// remove accents
-	$file_name = sanitize_title( $file_name );
+	// let WordPress try to remove as much accents as possible
+	$file_name = remove_accents( $file_name );
 
-	// replace _ by -
+	// fix remaining combined accents
+	// see: https://core.trac.wordpress.org/ticket/24661
+	$file_name = _ticket_24661_patch( $file_name );
+
+	// convert remaining special chars with dashes
+	$file_name = sanitize_title_with_dashes( $file_name );
+
+	// replace undescore(_) with dash(-)
 	$file_name = str_replace( '_', '-', $file_name );
 
 	// Return sanitized file name
