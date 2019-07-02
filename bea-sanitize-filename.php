@@ -61,19 +61,13 @@ function bea_sanitize_file_name( $file_name = '' ) {
 		return $file_name;
 	}
 
-	// get extension
-	preg_match( '/\.[^\.]+$/i', $file_name, $ext );
-
-	// No extension, go out ?
-	if ( ! isset( $ext[0] ) ) {
+	$ext = pathinfo( $file_name, PATHINFO_EXTENSION );
+	if ( empty( $ext ) ) {
 		return $file_name;
 	}
 
-	// Get only first part
-	$ext = $ext[0];
-
 	// work only on the filename without extension
-	$file_name = str_replace( $ext, '', $file_name );
+	$file_name = str_replace( '.' . $ext, '', $file_name );
 
 	// only lowercase
 	// remove accents
@@ -83,7 +77,7 @@ function bea_sanitize_file_name( $file_name = '' ) {
 	$file_name = str_replace( '_', '-', $file_name );
 
 	// Return sanitized file name
-	return $file_name . $ext;
+	return $file_name . '.' . $ext;
 }
 add_filter( 'sanitize_file_name', 'bea_sanitize_file_name', 10, 1 );
 
