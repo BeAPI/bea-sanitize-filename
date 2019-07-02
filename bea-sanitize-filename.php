@@ -42,6 +42,7 @@ function bea_sanitize_file_name_chars( $special_chars = array() ) {
 
 	return $special_chars;
 }
+
 add_filter( 'sanitize_file_name_chars', 'bea_sanitize_file_name_chars', 10, 1 );
 
 /**
@@ -49,15 +50,14 @@ add_filter( 'sanitize_file_name_chars', 'bea_sanitize_file_name_chars', 10, 1 );
  * - only lowercase
  * - replace _ by -
  *
- * @since 1.0.1
- *
  * @param string $file_name
  *
  * @return string
+ * @since 1.0.1
  */
 function bea_sanitize_file_name( $file_name = '' ) {
 	// Empty filename
-	if ( empty($file_name) ) {
+	if ( empty( $file_name ) ) {
 		return $file_name;
 	}
 
@@ -92,6 +92,7 @@ function bea_sanitize_file_name( $file_name = '' ) {
 	// Return sanitized file name
 	return $file_name . '.' . $ext;
 }
+
 add_filter( 'sanitize_file_name', 'bea_sanitize_file_name', 10, 1 );
 
 if ( ! function_exists( '_ticket_24661_patch' ) ) :
