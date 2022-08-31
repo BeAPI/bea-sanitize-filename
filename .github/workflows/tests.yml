@@ -11,39 +11,39 @@ jobs:
         wordpress-versions: [ 'latest', 'nightly', '6.0', '5.9', '5.8', '5.7', '5.6', '5.5', '5.4', '5.3', '5.2', '5.1', '5.0', '4.9', '4.8', '4.7', '4.6', '4.5', '4.4']
 
 
-  steps:
-    - name: "Checkout code"
-      uses: actions/checkout@v2
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v2
 
-    - name: "Install docker-ce"
-      run: |
-        sudo apt-get update
-        sudo apt-get install \
-             apt-transport-https \
-             ca-certificates \
-             curl \
-             gnupg-agent \
-             software-properties-common
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-        sudo add-apt-repository \
-             "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-             $(lsb_release -cs) \
-             stable"
-        sudo apt-get update
-        sudo apt-get install docker-ce docker-ce-cli containerd.io
+      - name: "Install docker-ce"
+        run: |
+          sudo apt-get update
+          sudo apt-get install \
+               apt-transport-https \
+               ca-certificates \
+               curl \
+               gnupg-agent \
+               software-properties-common
+          curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+          sudo add-apt-repository \
+               "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+               $(lsb_release -cs) \
+               stable"
+          sudo apt-get update
+          sudo apt-get install docker-ce docker-ce-cli containerd.io
 
-    - name: "Install Lando"
-      run: |
-        wget https://files.devwithlando.io/lando-stable.deb
-        sudo dpkg -i lando-stable.deb
+      - name: "Install Lando"
+        run: |
+          wget https://files.devwithlando.io/lando-stable.deb
+          sudo dpkg -i lando-stable.deb
 
-    - name: "Test on ${{ matrix.php-versions }} - ${{ matrix.wordpress-versions }}"
-      run: |
-        ./bin/ci-env.sh
-        WP_VERSION=${{ matrix.wordpress-versions }} WP_LOCALE=en_US PHP_VERSION=${{ matrix.php-versions }} ./bin/lando-start.sh
-        lando launch-browserstack
+      - name: "Test on ${{ matrix.php-versions }} - ${{ matrix.wordpress-versions }}"
+        run: |
+          ./bin/ci-env.sh
+          WP_VERSION=${{ matrix.wordpress-versions }} WP_LOCALE=en_US PHP_VERSION=${{ matrix.php-versions }} ./bin/lando-start.sh
+          lando launch-browserstack
 
-    - name: "Run tests"
-      run: |
-        lando test
-        lando stop
+      - name: "Run tests"
+        run: |
+          lando test
+          lando stop
