@@ -37,7 +37,7 @@ jobs:
       wget https://files.devwithlando.io/lando-stable.deb
       sudo dpkg -i lando-stable.deb
 
-  - name: name: ${{ matrix.php }}${{ matrix.split_slow && ' slow tests' || '' }}${{ matrix.memcached && ' with memcached' || '' }} on ${{ matrix.os }}
+  - name: "Test on ${{ matrix.php-versions }} - ${{ matrix.wordpress-versions }}"
     run: |
       ./bin/ci-env.sh
       WP_VERSION=${{ matrix.wordpress-versions }} WP_LOCALE=en_US PHP_VERSION=${{ matrix.php-versions }} ./bin/lando-start.sh
