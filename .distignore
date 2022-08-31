@@ -1,0 +1,7 @@
+.distignore
+.github
+.git
+CHANGELOG.md
+composer.json
+LICENSE.md
+README.md
