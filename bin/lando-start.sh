@@ -14,8 +14,8 @@ cd ..
 perl -pi -we "s/^  php: .*/  php: '$PHP_VERSION'/" .lando.yml
 
 lando start -v
-lando wp --version || lando bash test/install-wp-cli.sh
-rm -rf wordpress/[a-z]*
+
+rm -rf wordpress
 
 lando wp core download \
     --path=/app/wordpress/ \
@@ -45,7 +45,7 @@ lando wp db reset \
     --path=/app/wordpress/ \
     --yes
 
-wp_url="https://beasanitizefilename.lndo.site"
+wp_url="https://bea-sanitize-filename.lndo.site"
 lando wp core install \
     --path=/app/wordpress/ \
     --url="$wp_url" \
