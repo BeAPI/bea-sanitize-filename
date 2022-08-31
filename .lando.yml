@@ -2,7 +2,7 @@ name: bea-sanitize-filename
 recipe: wordpress
 config:
   webroot: wordpress
-  php: '7.0'
+  php: '7.2'
 services:
   chromedriver:
     type: compose
