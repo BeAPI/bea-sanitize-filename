@@ -3,13 +3,12 @@ name: Tests
 on: [pull_request]
 jobs:
   build:
-
-  runs-on: ${{ matrix.operating-system }}
-  strategy:
-    matrix:
-      operating-system: [ ubuntu-latest ]
-      php-versions: [ '7.4' ]
-      wordpress-versions: [ 'latest', 'nightly', '6.0', '5.9', '5.8', '5.7', '5.6', '5.5', '5.4', '5.3', '5.2', '5.1', '5.0', '4.9', '4.8', '4.7', '4.6', '4.5', '4.4']
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-latest ]
+        php-versions: [ '7.4' ]
+        wordpress-versions: [ 'latest', 'nightly', '6.0', '5.9', '5.8', '5.7', '5.6', '5.5', '5.4', '5.3', '5.2', '5.1', '5.0', '4.9', '4.8', '4.7', '4.6', '4.5', '4.4']
 
 
   steps:
@@ -38,10 +37,10 @@ jobs:
       wget https://files.devwithlando.io/lando-stable.deb
       sudo dpkg -i lando-stable.deb
 
-  - name: "Setup Env"
+  - name: name: ${{ matrix.php }}${{ matrix.split_slow && ' slow tests' || '' }}${{ matrix.memcached && ' with memcached' || '' }} on ${{ matrix.os }}
     run: |
       ./bin/ci-env.sh
-      WP_VERSION=${{ matrix.wordpress-versions }} WP_LOCALE=en_US PHP_VERSION=$(phpenv version-name) ./bin/lando-start.sh
+      WP_VERSION=${{ matrix.wordpress-versions }} WP_LOCALE=en_US PHP_VERSION=${{ matrix.php-versions }} ./bin/lando-start.sh
       lando launch-browserstack
 
   - name: "Run tests"
