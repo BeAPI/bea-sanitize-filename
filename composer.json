@@ -28,10 +28,8 @@
     "process-timeout": 3600
   },
   "scripts": {
-    "test": "vendor/bin/codecept run wpunit && vendor/bin/codecept run acceptance --env desktop",
-    "test-local": "rm -rf wordpress/wp-content/uploads/ && vendor/bin/codecept run wpunit && vendor/bin/codecept run acceptance --env local",
-    "test-local-mobile": "rm -rf wordpress/wp-content/uploads/ && vendor/bin/codecept run acceptance --env=local-mobile",
-
+    "test": "vendor/bin/codecept run wpunit",
+    "test-local": "rm -rf wordpress/wp-content/uploads/ && vendor/bin/codecept run wpunit",
     "coding-standards": [
       "./vendor/bin/phpcs --config-set installed_paths ../../wp-coding-standards/wpcs/  && ./vendor/bin/phpcs --standard=phpcs.xml.dist ./ -p"
     ],
