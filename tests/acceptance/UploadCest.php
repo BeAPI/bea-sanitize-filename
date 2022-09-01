@@ -36,7 +36,6 @@ class UploadCest {
 		$I->click( '#file-form input[type="submit"]' );
 		$I->amOnPage( 'wp-admin/upload.php?mode=list' );
 		$I->see( 'testing-filename-with-lots-of-spaces-.jpg' );
-
 	}
 
 	public function TestSpecials( AcceptanceTester $I ) {
@@ -44,6 +43,17 @@ class UploadCest {
 		$I->amOnPage( 'wp-admin/media-new.php?browser-uploader' );
 
 		$I->attachFile( '#async-upload', '’‘“”«»‹›—€[]{}.jpg' );
+		$I->click( '#file-form input[type="submit"]' );
+		$I->amOnPage( 'wp-admin/upload.php?mode=list' );
+		$I->see( 'e.jpg' );
+
+	}
+
+	public function TestSpecialsNoEuro( AcceptanceTester $I ) {
+		$I->wantTo( 'Test the upload special chars file' );
+		$I->amOnPage( 'wp-admin/media-new.php?browser-uploader' );
+
+		$I->attachFile( '#async-upload', '’‘“”«»‹›—[]{}.jpg' );
 		$I->click( '#file-form input[type="submit"]' );
 		$I->amOnPage( 'wp-admin/upload.php?mode=list' );
 		$I->see( 'unnamed-file.jpg' );

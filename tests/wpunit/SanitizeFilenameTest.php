@@ -45,6 +45,12 @@ class SanitizeFilenameTest extends \Codeception\TestCase\WPTestCase {
 
 	function test_remove_custom_chars() {
 		$in  = '’‘“”«»‹›—€[]{}.jpg';
+		$out = 'e.jpg';
+		$this->assertSame( $out, sanitize_file_name( $in ) );
+	}
+
+	function test_remove_custom_chars_not_euro() {
+		$in  = '’‘“”«»‹›—[]{}.jpg';
 		$out = 'unnamed-file.jpg';
 		$this->assertSame( $out, sanitize_file_name( $in ) );
 	}
