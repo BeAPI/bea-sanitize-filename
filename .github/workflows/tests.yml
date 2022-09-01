@@ -1,0 +1,48 @@
+name: Tests
+
+on: [pull_request]
+jobs:
+  build:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      fail-fast: false
+      matrix:
+        operating-system: [ ubuntu-latest ]
+        php-versions: [ '7.4' ]
+        wordpress-versions: [ 'latest', 'nightly', '6.0', '5.9', '5.8', '5.7', '5.6', '5.5']
+
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v2
+
+      - name: "Install docker-ce"
+        run: |
+          sudo apt-get update
+          sudo apt-get install \
+               apt-transport-https \
+               ca-certificates \
+               curl \
+               gnupg-agent \
+               software-properties-common
+          curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+          sudo add-apt-repository \
+               "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+               $(lsb_release -cs) \
+               stable"
+          sudo apt-get update
+          sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+      - name: "Install Lando"
+        run: |
+          wget https://files.devwithlando.io/lando-stable.deb
+          sudo dpkg -i lando-stable.deb
+
+      - name: "Test on ${{ matrix.php-versions }} - ${{ matrix.wordpress-versions }}"
+        run: |
+          ./bin/ci-env.sh
+          WP_VERSION=${{ matrix.wordpress-versions }} WP_LOCALE=en_US PHP_VERSION=${{ matrix.php-versions }} ./bin/lando-start.sh
+
+      - name: "Run tests"
+        run: |
+          lando test
+          lando stop

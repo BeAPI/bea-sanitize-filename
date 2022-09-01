@@ -29,6 +29,13 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
+/**
+ * Add some special chats to espace to WordPress basic list
+ *
+ * @param array $special_chars
+ *
+ * @return array
+ */
 function bea_sanitize_file_name_chars( $special_chars = array() ) {
 	// Special caracters
 	$special_chars = array_merge( array( '’', '‘', '“', '”', '«', '»', '‹', '›', '—', '€', '©' ), $special_chars );
@@ -41,6 +48,7 @@ function bea_sanitize_file_name_chars( $special_chars = array() ) {
 
 	return $special_chars;
 }
+
 add_filter( 'sanitize_file_name_chars', 'bea_sanitize_file_name_chars', 10, 1 );
 
 /**
@@ -84,4 +92,5 @@ function bea_sanitize_file_name( $file_name = '' ) {
 	// Return sanitized file name
 	return $file_name . $ext;
 }
+
 add_filter( 'sanitize_file_name', 'bea_sanitize_file_name', 10, 1 );
