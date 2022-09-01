@@ -41,7 +41,6 @@ jobs:
         run: |
           ./bin/ci-env.sh
           WP_VERSION=${{ matrix.wordpress-versions }} WP_LOCALE=en_US PHP_VERSION=${{ matrix.php-versions }} ./bin/lando-start.sh
-          lando launch-browserstack
 
       - name: "Run tests"
         run: |
