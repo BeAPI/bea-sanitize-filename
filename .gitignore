@@ -1,0 +1,12 @@
+/vendor
+.env.local
+/wordpress
+
+codeception.yml
+tests/acceptance.suite.yml
+tests/functional.suite.yml
+tests/unit.suite.yml
+tests/wpunit.suite.yml
+
+.idea/
+.DS_STORE

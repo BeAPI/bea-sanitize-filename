@@ -41,6 +41,49 @@ An [issue](https://github.com/BeAPI/bea-sanitize-filename/issues/1) is open abou
   
 ## Contributing
 
+## Testing
+
+### Introduction
+
+The tests are based on [WP-Browser](https://github.com/lucatume/wp-browser).
+
+You have WPUnit and Acceptance tests.  
+
+### Installation
+
+1. Install [Lando](https://docs.devwithlando.io/installation/installing.html)
+2. From command line into the project folder execute `./bin/lando-start.sh`
+3. From command line into the project folder execute `lando composer install`
+
+The local url will be https://beasanitizefilename.lndo.site and credentials will be
+* user : admin
+* password : admin
+
+### Tools
+To test the code, just launch :
+* For Wpunit tests and desktop : `lando test-local`
+* For desktop mobile : `lando test-mobile`
+
+If you need to test the code on BrowserStack, you need to define two environments variables :
+* `BROWSERSTACK_USERNAME_REAL` : the usernmae of your browserStack account
+* `BROWSERSTACK_KEY` : the key of your browserStack account
+
+/!\ Do not commit theses credentials /!\
+
+## Customization
+
+Need to customize the environment variables ? every codeception file can be overrided bit by bit by creating a new file without the .dist.
+So to customize the .env file you'l need to :
+
+* Create a codeception.yml file
+* Put into the file :
+```
+params:
+- .env.local
+```
+* Create a .env.local file and change the desired environment variables like `BROWSERSTACK_KEY`
+
+## Changelog
 Please refer to the [contributing guidelines](.github/CONTRIBUTING.md) to increase the chance of your pull request to be merged and/or receive the best support for your issue.
 
 ### Issues & features request / proposal
