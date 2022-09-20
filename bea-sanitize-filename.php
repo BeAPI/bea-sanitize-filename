@@ -83,8 +83,9 @@ function bea_sanitize_file_name( $file_name = '' ) {
 	$file_name = str_replace( $ext, '', $file_name );
 
 	// only lowercase
+	$file_name = mb_strtolower( $file_name );
 	// remove accents
-	$file_name = sanitize_title( $file_name );
+	$file_name = remove_accents( $file_name );
 
 	// replace _ by -
 	$file_name = str_replace( '_', '-', $file_name );

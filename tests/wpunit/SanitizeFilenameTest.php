@@ -39,7 +39,7 @@ class SanitizeFilenameTest extends \Codeception\TestCase\WPTestCase {
 
 	function test_convert_spaces_to_dashes() {
 		$in  = ' testing  filename with    lots of  spaces    .jpg';
-		$out = 'testing-filename-with-lots-of-spaces.jpg';
+		$out = 'testing-filename-with-lots-of-spaces-.jpg';
 		$this->assertSame( $out, sanitize_file_name( $in ) );
 	}
 
@@ -52,6 +52,12 @@ class SanitizeFilenameTest extends \Codeception\TestCase\WPTestCase {
 	function test_remove_custom_chars_not_euro() {
 		$in  = '’‘“”«»‹›—[]{}.jpg';
 		$out = 'unnamed-file.jpg';
+		$this->assertSame( $out, sanitize_file_name( $in ) );
+	}
+
+	function test_non_latin() {
+		$in  = '真っ黒い.png';
+		$out = '真っ黒い.png';
 		$this->assertSame( $out, sanitize_file_name( $in ) );
 	}
 }
