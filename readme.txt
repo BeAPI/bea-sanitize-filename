@@ -4,7 +4,7 @@ Donate link: http://paypal.me/BeAPI
 Tags: uploads, sanitize, media
 Requires at least: 4.0
 Requires php: 5.6
-Tested up to: 5.2
+Tested up to: 6.1
 Stable tag: 2.0.7
 License: GPLv3 or later
 License URI: https://github.com/BeAPI/bea-sanitize-filename/blob/master/LICENSE.md
