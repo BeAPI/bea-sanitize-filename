@@ -5,7 +5,7 @@ Tags: uploads, sanitize, media
 Requires at least: 4.0
 Requires php: 5.6
 Tested up to: 5.2
-Stable tag: 2.0.6
+Stable tag: 2.0.7
 License: GPLv3 or later
 License URI: https://github.com/BeAPI/bea-sanitize-filename/blob/master/LICENSE.md
 
@@ -58,8 +58,11 @@ You just need to activate on each site.
 
 == Changelog ==
 
+= 2.0.7 - 20 Sept 2022 =
+- Non Latin characters in filename are handled
+
 = 2.0.6 - 05 Oct 2018 =
-- #8 : Add More accentuated caracters
+- #8 : Add More accentuated characters
 
 = 2.0.5 - 12 Feb 2018 =
 - i18n
