@@ -1,5 +1,6 @@
 .github export-ignore
 .gitattributes export-ignore
+psalm.xml
 phpcs.ruleset.xml export-ignore
 phpcs.xml export-ignore
 phpunit.xml.dist export-ignore
