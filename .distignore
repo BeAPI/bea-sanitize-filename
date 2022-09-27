@@ -6,6 +6,7 @@
 .gitignore
 .idea
 .lando.yml
+.wordpress.org
 bin
 tests
 codeception.dist.yml
