@@ -1,12 +1,11 @@
 /vendor
+/node_modules
 .env.local
 /wordpress
 
 codeception.yml
-tests/acceptance.suite.yml
-tests/functional.suite.yml
-tests/unit.suite.yml
-tests/wpunit.suite.yml
+.wp-env.override.json
+.phpunit.result.cache
 
 .idea/
 .DS_STORE

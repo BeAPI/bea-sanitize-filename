@@ -1,0 +1,18 @@
+{
+  "core": "WordPress/WordPress",
+  "phpVersion": "8.0",
+  "plugins": [
+    "."
+  ],
+  "mappings": {
+    "wp-content/plugins/bea-sanitize-filename": "."
+  },
+  "env": {
+    "tests": {
+      "phpVersion": "8.0",
+      "mappings": {
+        "wp-content/plugins/bea-sanitize-filename": "."
+      }
+    }
+  }
+}

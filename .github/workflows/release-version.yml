@@ -1,4 +1,4 @@
-name: Upload Release Asset
+name: Deploy to WordPress.org
 
 on:
   push:
@@ -7,12 +7,12 @@ on:
       - '*' # Push events to matching *
 
 jobs:
-  build:
-    name: Upload Release Asset
+  deploy:
+    name: Deploy to WordPress.org
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Publish to WP.org
         uses: 10up/action-wordpress-plugin-deploy@stable
@@ -23,12 +23,9 @@ jobs:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SLUG: bea-sanitize-filename
 
-      - name: Upload Release
-        uses: actions/upload-release-asset@v1
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ${{github.workspace}}/${{ github.event.repository.name }}.zip
-          asset_name: bea-sanitize-filename.zip
-          asset_content_type: application/zip
+          files: ${{ github.workspace }}/bea-sanitize-filename.zip

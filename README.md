@@ -2,6 +2,8 @@
 
 # BEA - Sanitize Filename
 
+Current version: `2.0.9`
+
 This plugin will remove all punctuation and accents from the filename of uploaded files, which is pretty handy.
 You could then ask "Why it's not already into core?". This is [make WordPress core](https://core.trac.wordpress.org/ticket/22363) !
 
@@ -45,43 +47,44 @@ An [issue](https://github.com/BeAPI/bea-sanitize-filename/issues/1) is open abou
 
 ### Introduction
 
-The tests are based on [WP-Browser](https://github.com/lucatume/wp-browser).
+The tests are based on PHPUnit and run inside [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/).
 
-You have WPUnit and Acceptance tests.  
+Only unit tests are available.
 
 ### Installation
 
-1. Install [Lando](https://docs.devwithlando.io/installation/installing.html)
-2. From command line into the project folder execute `./bin/lando-start.sh`
-3. From command line into the project folder execute `lando composer install`
-
-The local url will be https://beasanitizefilename.lndo.site and credentials will be
-* user : admin
-* password : admin
+1. Install [Docker](https://www.docker.com/) and [Node.js](https://nodejs.org/) (>= 18)
+2. Install dependencies: `npm install && composer install`
+3. Run tests: `npm run test:unit`
 
 ### Tools
 To test the code, just launch :
-* For Wpunit tests and desktop : `lando test-local`
-* For desktop mobile : `lando test-mobile`
+* For unit tests: `npm run test:unit`
+* For a readable report: `npm run test:unit:report`
+* For one-shot start + test + stop: `npm run test:unit:once`
 
-If you need to test the code on BrowserStack, you need to define two environments variables :
-* `BROWSERSTACK_USERNAME_REAL` : the usernmae of your browserStack account
-* `BROWSERSTACK_KEY` : the key of your browserStack account
+### Operating procedure
 
-/!\ Do not commit theses credentials /!\
+1. Initialize once on your machine:
+   - `npm install`
+   - `composer install`
+2. Run test suite:
+   - `npm run test:unit`
+3. Read result directly in terminal output:
+   - Success: exit code `0` and PHPUnit success line.
+   - Failure: exit code `1` or `2` with failing test names and stack traces.
+4. Stop environment if needed:
+   - `npm run wp-env:stop`
 
-## Customization
+### Troubleshooting
 
-Need to customize the environment variables ? every codeception file can be overrided bit by bit by creating a new file without the .dist.
-So to customize the .env file you'l need to :
-
-* Create a codeception.yml file
-* Put into the file :
-```
-params:
-- .env.local
-```
-* Create a .env.local file and change the desired environment variables like `BROWSERSTACK_KEY`
+- Error `service "cli" is not running`:
+  - `npm run wp-env:start`
+  - `npm run test:unit`
+- If environment is corrupted:
+  - `npm run wp-env:clean`
+  - `npm run wp-env:start`
+  - `npm run test:unit`
 
 ## Changelog
 Please refer to the [contributing guidelines](.github/CONTRIBUTING.md) to increase the chance of your pull request to be merged and/or receive the best support for your issue.
