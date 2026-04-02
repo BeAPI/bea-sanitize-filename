@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.8 - 02 Apr 2026
+* Add `@` character to the sanitized characters list
+
 ## 2.0.7 - 20 Sept 2022
 * Non Latin characters in filename are handled
 
