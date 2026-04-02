@@ -11,7 +11,8 @@ You could then ask "Why it's not already into core?". This is [make WordPress co
 
 ## Requirements
 
-- No requirements
+- PHP 8.0+
+- WordPress 4.0
 
 ## Installation
 

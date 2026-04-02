@@ -11,7 +11,7 @@
     "pretest:unit:report": "wp-env start",
     "test:unit": "wp-env run cli --env-cwd=wp-content/plugins/bea-sanitize-filename ./vendor/bin/phpunit",
     "test:unit:report": "wp-env run cli --env-cwd=wp-content/plugins/bea-sanitize-filename ./vendor/bin/phpunit --testdox",
-    "test:unit:once": "npm run wp-env:start && npm run test:unit && npm run wp-env:stop",
+    "test:unit:once": "sh -c 'trap \"npm run wp-env:stop\" EXIT; npm run wp-env:start && npm run test:unit'",
     "test:setup": "npm install && composer install"
   },
   "devDependencies": {
