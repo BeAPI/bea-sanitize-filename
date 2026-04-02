@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.9 - 02 Apr 2026
+* Fix invalid smart quotes in special characters list
+* Migrate tests to `wp-env` with PHPUnit unit tests only
+* Improve testing documentation and scripts
+
 ## 2.0.8 - 02 Apr 2026
 * Add `@` character to the sanitized characters list
 
