@@ -88,7 +88,7 @@ function bea_sanitize_file_name( $file_name = '' ) {
 	$file_name = remove_accents( $file_name );
 
 	// replace _ and @ by -
-	$file_name = str_replace( array( '_', '@' ), '-', $file_name );
+	$file_name = str_replace( array( '_', chr( 64 ) ), '-', $file_name );
 
 	// Return sanitized file name
 	return $file_name . $ext;
