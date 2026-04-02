@@ -1,0 +1,25 @@
+{
+  "name": "bea-sanitize-filename",
+  "version": "2.0.8",
+  "description": "Remove all punctuation and accents from the filename of uploaded files.",
+  "scripts": {
+    "wp-env": "wp-env",
+    "wp-env:start": "wp-env start",
+    "wp-env:stop": "wp-env stop",
+    "wp-env:clean": "wp-env clean",
+    "pretest:unit": "wp-env start",
+    "pretest:unit:report": "wp-env start",
+    "test:unit": "wp-env run cli --env-cwd=wp-content/plugins/bea-sanitize-filename ./vendor/bin/phpunit",
+    "test:unit:report": "wp-env run cli --env-cwd=wp-content/plugins/bea-sanitize-filename ./vendor/bin/phpunit --testdox",
+    "test:unit:once": "npm run wp-env:start && npm run test:unit && npm run wp-env:stop",
+    "test:setup": "npm install && composer install"
+  },
+  "devDependencies": {
+    "@wordpress/env": "^10.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "license": "GPL-3.0+"
+}

@@ -38,7 +38,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 function bea_sanitize_file_name_chars( $special_chars = array() ) {
 	// Special caracters
-	$special_chars = array_merge( array( ‘’’, ‘’’, ‘”’, ‘”’, ‘«’, ‘»’, ‘‹’, ‘›’, ‘—‘, ‘€’, ‘©’ ), $special_chars );
+	$special_chars = array_merge( array( '’', '‘', '”', '“', '«', '»', '‹', '›', '—', '€', '©', '@' ), $special_chars );
 	/**
 	 * Accentued caracters
 	 * @see   https://github.com/BeAPI/bea-sanitize-filename/issues/8
@@ -87,8 +87,8 @@ function bea_sanitize_file_name( $file_name = '' ) {
 	// remove accents
 	$file_name = remove_accents( $file_name );
 
-	// replace _ and @ by -
-	$file_name = str_replace( array( '_', chr( 64 ) ), '-', $file_name );
+	// replace _ by -
+	$file_name = str_replace( '_', '-', $file_name );
 
 	// Return sanitized file name
 	return $file_name . $ext;

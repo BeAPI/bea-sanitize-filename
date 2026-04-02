@@ -5,13 +5,15 @@
 .gitattributes
 .gitignore
 .idea
-.lando.yml
+.wp-env.override.json
 .wordpress.org
 bin
 tests
-codeception.dist.yml
 composer.json
 composer.lock
+package.json
+package-lock.json
+.wp-env.json
 grumphp.yml
 phpcs.ruleset.xml
 phpcs.xml
