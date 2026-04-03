@@ -75,7 +75,7 @@ function bea_sanitize_file_name( $file_name = '' ) {
 	$ext = pathinfo( $file_name, PATHINFO_EXTENSION );
 
 	// No extension, go out ?
-	if ( empty( $ext ) ) {
+	if ( $ext === '' ) {
 		return $file_name;
 	}
 
