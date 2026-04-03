@@ -30,7 +30,7 @@ class SanitizeFilenameTest extends TestCase {
 		$this->assertSame( $out, sanitize_file_name( $in ) );
 	}
 
-	public function test_convert_at_sign_to_dashes() {
+	public function test_remove_at_sign() {
 		$in  = 'filename@with@arobase.jpg';
 		$out = 'filenamewitharobase.jpg';
 		$this->assertSame( $out, sanitize_file_name( $in ) );

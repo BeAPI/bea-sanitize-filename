@@ -33,21 +33,21 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
 /**
- * Add some special chats to espace to WordPress basic list
+ * Add some special chars to escape to WordPress basic list
  *
  * @param array $special_chars
  *
  * @return array
  */
 function bea_sanitize_file_name_chars( $special_chars = array() ) {
-	// Special caracters
-	$special_chars = array_merge( array( '’', '‘', '”', '“', '«', '»', '‹', '›', '—', '€', '©', '@' ), $special_chars );
+	// Special characters
+	$special_chars = array_merge( array( ‘’’, ‘’’, ‘”’, ‘”’, ‘«’, ‘»’, ‘‹’, ‘›’, ‘—‘, ‘€’, ‘©’, ‘@’ ), $special_chars );
 	/**
-	 * Accentued caracters
+	 * Accented characters
 	 * @see   https://github.com/BeAPI/bea-sanitize-filename/issues/8
 	 * @since 2.0.6
 	 */
-	$special_chars = array_merge( array( 'À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ù', 'Ú', 'Û', 'Ü', 'Ý', 'à', 'á', 'â', 'ã', 'ä', 'å', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ð', 'ò', 'ó', 'ô', 'õ', 'ö', 'ù', 'ú', 'û', 'ü', 'ý', 'ÿ' ), $special_chars );
+	$special_chars = array_merge( array( ‘À’, ‘Á’, ‘Â’, ‘Ã’, ‘Ä’, ‘Å’, ‘Ç’, ‘È’, ‘É’, ‘Ê’, ‘Ë’, ‘Ì’, ‘Í’, ‘Î’, ‘Ï’, ‘Ò’, ‘Ó’, ‘Ô’, ‘Õ’, ‘Ö’, ‘Ù’, ‘Ú’, ‘Û’, ‘Ü’, ‘Ý’, ‘à’, ‘á’, ‘â’, ‘ã’, ‘ä’, ‘å’, ‘ç’, ‘è’, ‘é’, ‘ê’, ‘ë’, ‘ì’, ‘í’, ‘î’, ‘ï’, ‘ð’, ‘ò’, ‘ó’, ‘ô’, ‘õ’, ‘ö’, ‘ù’, ‘ú’, ‘û’, ‘ü’, ‘ý’, ‘ÿ’ ), $special_chars );
 
 	return $special_chars;
 }
@@ -71,19 +71,16 @@ function bea_sanitize_file_name( $file_name = '' ) {
 		return $file_name;
 	}
 
-	// get extension
-	preg_match( '/\.[^\.]+$/i', $file_name, $ext );
+	// Separate filename and extension
+	$ext = pathinfo( $file_name, PATHINFO_EXTENSION );
 
 	// No extension, go out ?
-	if ( ! isset( $ext[0] ) ) {
+	if ( empty( $ext ) ) {
 		return $file_name;
 	}
 
-	// Get only first part
-	$ext = $ext[0];
-
 	// work only on the filename without extension
-	$file_name = str_replace( $ext, '', $file_name );
+	$file_name = substr( $file_name, 0, -( strlen( $ext ) + 1 ) );
 
 	// only lowercase
 	$file_name = mb_strtolower( $file_name );
@@ -94,7 +91,7 @@ function bea_sanitize_file_name( $file_name = '' ) {
 	$file_name = str_replace( '_', '-', $file_name );
 
 	// Return sanitized file name
-	return $file_name . $ext;
+	return $file_name . '.' . $ext;
 }
 
 add_filter( 'sanitize_file_name', 'bea_sanitize_file_name', 10, 1 );
