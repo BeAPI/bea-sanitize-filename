@@ -75,22 +75,25 @@ function bea_sanitize_file_name( $file_name = '' ) {
 		return $file_name;
 	}
 
-	// get extension
-	preg_match( '/\.[^\.]+$/i', $file_name, $ext );
-
-	// No extension, go out ?
-	if ( ! isset( $ext[0] ) ) {
+	// Separate filename and extension (last segment after the final dot).
+	$extension = pathinfo( $file_name, PATHINFO_EXTENSION );
+	if ( '' === $extension ) {
 		return $file_name;
 	}
 
-	// Get only first part
-	$ext = $ext[0];
+	$suffix = '.' . $extension;
+	$suffix_length = strlen( $suffix );
 
-	// work only on the filename without extension
-	$file_name = str_replace( $ext, '', $file_name );
+	// Strip the suffix only at the end; str_replace( $suffix, '', $file_name ) would remove every occurrence.
+	if ( ! str_ends_with( $file_name, $suffix ) ) {
+		return $file_name;
+	}
+
+	$file_name = substr( $file_name, 0, -$suffix_length );
 
 	// only lowercase
 	$file_name = mb_strtolower( $file_name );
+
 	// remove accents
 	$file_name = remove_accents( $file_name );
 
@@ -98,7 +101,7 @@ function bea_sanitize_file_name( $file_name = '' ) {
 	$file_name = str_replace( '_', '-', $file_name );
 
 	// Return sanitized file name
-	return $file_name . $ext;
+	return $file_name . $suffix;
 }
 
 add_filter( 'sanitize_file_name', 'bea_sanitize_file_name', 10, 1 );
