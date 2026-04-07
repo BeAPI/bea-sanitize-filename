@@ -33,18 +33,21 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
 /**
- * Add some special chats to espace to WordPress basic list
+ * Merges extra characters into the list WordPress strips from upload file names.
  *
- * @param array $special_chars
+ * Callback for the `sanitize_file_name_chars` filter.
  *
- * @return array
+ * @param array $special_chars Characters already collected by WordPress or other callbacks.
+ * @return array Combined list of characters removed during filename sanitization.
  */
 function bea_sanitize_file_name_chars( $special_chars = array() ) {
-	// Special caracters
+	// Punctuation, symbols, and typographic quotes.
 	$special_chars = array_merge( array( '’', '‘', '”', '“', '«', '»', '‹', '›', '—', '€', '©', '@' ), $special_chars );
+
 	/**
-	 * Accentued caracters
-	 * @see   https://github.com/BeAPI/bea-sanitize-filename/issues/8
+	 * Accented Latin letters removed from the basename.
+	 *
+	 * @see https://github.com/BeAPI/bea-sanitize-filename/issues/8
 	 * @since 2.0.6
 	 */
 	$special_chars = array_merge( array( 'À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ù', 'Ú', 'Û', 'Ü', 'Ý', 'à', 'á', 'â', 'ã', 'ä', 'å', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ð', 'ò', 'ó', 'ô', 'õ', 'ö', 'ù', 'ú', 'û', 'ü', 'ý', 'ÿ' ), $special_chars );
@@ -55,15 +58,16 @@ function bea_sanitize_file_name_chars( $special_chars = array() ) {
 add_filter( 'sanitize_file_name_chars', 'bea_sanitize_file_name_chars', 10, 1 );
 
 /**
- * Filters the filename by adding more rules :
- * - only lowercase
- * - replace _ by -
+ * Applies extra rules after WordPress core sanitization.
+ *
+ * - Lowercase the basename (extension unchanged).
+ * - Strip accents via `remove_accents()`.
+ * - Replace underscores with hyphens.
  *
  * @since 1.0.1
  *
- * @param string $file_name
- *
- * @return string
+ * @param string $file_name File name after `sanitize_file_name` character stripping.
+ * @return string File name with the rules above applied.
  */
 function bea_sanitize_file_name( $file_name = '' ) {
 	// Empty filename

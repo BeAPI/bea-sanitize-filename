@@ -34,7 +34,15 @@
     "process-timeout": 3600
   },
   "scripts": {
-    "test": "vendor/bin/phpunit",
+    "test": "npm run test:unit:once",
+    "test:phpunit": "vendor/bin/phpunit",
+    "test:unit": "npm run test:unit",
+    "test:unit:report": "npm run test:unit:report",
+    "test:unit:once": "npm run test:unit:once",
+    "test:setup": "npm run test:setup",
+    "wp-env:start": "npm run wp-env:start",
+    "wp-env:stop": "npm run wp-env:stop",
+    "wp-env:clean": "npm run wp-env:clean",
     "cs": "./vendor/bin/phpcs",
     "cbf": "./vendor/bin/phpcbf"
   },

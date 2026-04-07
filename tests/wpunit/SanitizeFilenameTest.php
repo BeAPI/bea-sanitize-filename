@@ -30,7 +30,17 @@ class SanitizeFilenameTest extends TestCase {
 		$this->assertSame( $out, sanitize_file_name( $in ) );
 	}
 
-	public function test_convert_at_sign_to_dashes() {
+	/**
+	 * The basename must lose only the final extension, not every occurrence of the extension string.
+	 * A global str_replace( $ext, '', $file_name ) turns e.g. my.css.file.css into my.file.css.
+	 */
+	public function test_extension_removed_only_from_suffix() {
+		$in  = 'my.css.file.css';
+		$out = 'my.css.file.css';
+		$this->assertSame( $out, sanitize_file_name( $in ) );
+	}
+
+	public function test_remove_at_sign() {
 		$in  = 'filename@with@arobase.jpg';
 		$out = 'filenamewitharobase.jpg';
 		$this->assertSame( $out, sanitize_file_name( $in ) );
