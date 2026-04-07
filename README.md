@@ -2,7 +2,7 @@
 
 # BEA - Sanitize Filename
 
-Current version: `2.0.9`
+Current version: `2.0.10`
 
 This plugin will remove all punctuation and accents from the filename of uploaded files, which is pretty handy.
 You could then ask "Why it's not already into core?". This is [make WordPress core](https://core.trac.wordpress.org/ticket/22363) !

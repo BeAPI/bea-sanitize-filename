@@ -1,6 +1,6 @@
 {
   "name": "bea-sanitize-filename",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "Remove all punctuation and accents from the filename of uploaded files.",
   "scripts": {
     "wp-env": "wp-env",

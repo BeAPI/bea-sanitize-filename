@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.10 - 07 Apr 2026
+* Improve `sanitize_file_name` handling so only the real file suffix is transformed (avoid stripping when an extension-like segment appears earlier in the name)
+* Expand PHPUnit coverage with data providers and upload-style filename cases
+* Tidy `sanitize_file_name_chars` flow and align PHPCS with PHP 8.0; refine Composer/npm test scripts
+
 ## 2.0.9 - 02 Apr 2026
 * Fix invalid smart quotes in special characters list
 * Migrate tests to `wp-env` with PHPUnit unit tests only
